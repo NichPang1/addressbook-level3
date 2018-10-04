@@ -64,7 +64,7 @@ Please refer to the <a href="DeveloperGuide.html#setting-up">Setting up</a> sect
 <div class="sectionbody">
 <div class="paragraph">
 <p>Adds a person to the address book.<br>
-Format: <code>add NAME [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [p]s/TITLE [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add NAME [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [p]s/TITLE [p]d/DD-MM-YYYY [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -73,7 +73,7 @@ Format: <code>add NAME [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [p]s/TITLE [t/T
 items with <code>&#8230;&#8203;</code> after them can have multiple instances. Order of parameters are fixed.</p>
 </div>
 <div class="paragraph">
-<p>Put a <code>p</code> before the phone / email / address / title prefixes to mark it as <code>private</code>. <code>private</code> details can only
+<p>Put a <code>p</code> before the phone / email / address / title / schedule prefixes to mark it as <code>private</code>. <code>private</code> details can only
 be seen using the <code>viewall</code> command.</p>
 </div>
 <div class="paragraph">
@@ -87,10 +87,10 @@ be seen using the <code>viewall</code> command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01</code> s/Doctor</p>
+<p><code>add John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01</code> s/Doctor d/09-11-2018</p>
 </li>
 <li>
-<p><code>add Betsy Crowe pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison s/Patient t/criminal t/friend</code></p>
+<p><code>add Betsy Crowe pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison s/Patient d/04-10-2018 t/criminal t/friend</code></p>
 </li>
 </ul>
 </div>
@@ -317,4 +317,4 @@ Format: <code>exit</code></p>
 <p>There is no need to save manually. Address book data are saved in a file called <code>addressbook.txt</code> in the project root folder.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-04 16:03:23 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-04 16:22:29 UTC</div></div></div></body></html>
