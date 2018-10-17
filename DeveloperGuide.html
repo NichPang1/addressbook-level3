@@ -134,27 +134,73 @@
 <div class="ulist">
 <ul>
 <li>
-<p><code>saveInitialState()</code>- Saves the initial state of the Health Booklet state on start-up in addressBookStates.<br></p>
+<p><code><strong>saveInitialState()</strong></code>- Saves the initial state of the Health Booklet state on start-up in addressBookStates.<br></p>
 </li>
 <li>
-<p><code>addCurrentState()</code>- Saves the current Health Booklet state in addressBookStates and move the stateIterator forward.<br></p>
+<p><code><strong>addCurrentState()</strong></code>- Saves the current Health Booklet state in addressBookStates and move the stateIterator forward.<br></p>
 </li>
 <li>
-<p><code>undoLast()</code>- Restores the previous Health Booklet state from addressBookStates.<br></p>
+<p><code><strong>undoLast()</strong></code>- Restores the previous Health Booklet state from addressBookStates.<br></p>
 </li>
 <li>
-<p><code>redoLast()</code>- Restores a previously undone Health Booklet state from addressBookStates.<br></p>
+<p><code><strong>redoLast()</strong></code>- Restores a previously undone Health Booklet state from addressBookStates.<br></p>
 </li>
 <li>
-<p><code>truncateOldPath()</code>- Remove Health Booklet states from addressBookStates following a change made after undo-ing. (will be discussed in more details below)<br></p>
+<p><code><strong>truncateOldPath()</strong></code>- Remove Health Booklet states from addressBookStates following a change made after undo-ing. (will be discussed in more details below)<br></p>
 </li>
 <li>
-<p><code>checkForAction()</code>- Check whether the truncateOldPath() method needs to be called before calling addCurrentState().<br></p>
+<p><code><strong>checkForAction()</strong></code>- Check whether the truncateOldPath() method needs to be called before calling addCurrentState().<br></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p><strong>Below is an example usage scenario and the behaviours of the component at a given time:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>On start-up:</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>CommandHistory will be initialised with the initial state of the Health Booklet with <code><strong>saveInitialState()</strong></code> and the <code><strong>stateIterator</strong></code> will be initialised to 0.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes a command that make changes to the Health Booklet (e.g add John Doe&#8230;&#8203;):</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <code>add</code> command calls <code>CommandHistory.checkForAction()</code> which will determine whether this command was made following an <code>undo</code> command and therefore requires <code>truncateOldPath()</code> to be called (in this case it won&#8217;t be called). After which the <code>addCurrentState()</code> method will be called, which moves the <code>stateIterator</code> forward from 0 to 1 and saves the current Health Booklet state in <code>addressBookStates</code> arraylist.</p>
+</div>
+<div class="paragraph">
+<p>Note: <code>CommandHistory.checkForAction()</code> will only be called if the command has been executed successfully. If it fails its execution, the Health Booklet state will not be saved into the <code>addressBookStates</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User wants to undo the change they just made and executes the <code>undo</code> command:</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The undo command calls <code>CommandHistory.undoLast()</code> which will move the <code>stateIterator</code> from 1 to 0 and restores the Health Booklet state stored in <code>addressBookStates[0]</code>.</p>
+</div>
+<div class="paragraph">
+<p>Note: If the user execute <code>undo</code> command when the <code>stateIterator</code> is at 0, the <code>undoLast()</code> method will throw a <code>HistoryOutOfBoundException()</code> which will be caught in the UndoCommand class and will display an error to the user instead.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User executes another command that make changes to the Health Booklet after the undo (e.g delete 1):</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <code>delete</code> command calls <code>CommandHistory.checkForAction()</code> which determines that this command was made following an <code>undo</code> command and therefore requires <code>truncateOldPath()</code>?to be called. In this case, all states saved in the <code>addressBookStates</code> after index 0 will be cleared and will be unable to redone. After which the <code>addCurrentState()</code> method will be called, which moves the <code>stateIterator</code> forward from 0 to 1 and saves the current Health Booklet state in <code>addressBookStates</code> arraylist.</p>
 </div>
 </div>
 </div>
@@ -381,4 +427,4 @@
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 09:29:13 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-10-17 09:41:21 UTC</div></div></div></body></html>
