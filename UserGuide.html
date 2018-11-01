@@ -11,17 +11,16 @@
 <li><a href="#4-3-listing-all-persons-code-list-code">4.3 Listing all persons : <code>list</code></a></li>
 <li><a href="#4-4-finding-all-persons-containing-any-keyword-in-their-name-code-find-code">4.4 Finding all persons containing any keyword in their name: <code>find</code></a></li>
 <li><a href="#4-5-deleting-a-person-code-delete-code">4.5 Deleting a person : <code>delete</code></a></li>
-<li><a href="#4-6-view-non-private-details-of-a-person-code-view-code">4.6 View non-private details of a person : <code>view</code></a></li>
-<li><a href="#4-7-view-all-details-of-a-person-code-viewall-code">4.7 View all details of a person : <code>viewall</code></a></li>
-<li><a href="#4-8-undo-redo-code-undo-code-code-redo-code">4.8 Undo/Redo : <code>undo</code> , <code>redo</code></a></li>
-<li><a href="#4-9-selecting-a-person-to-edit-his-her-appointment-code-edit-appointment-code">4.9 Selecting a person to edit his/her appointment: <code>edit-appointment</code></a></li>
-<li><a href="#4-10-clearing-all-entries-code-clear-code">4.10 Clearing all entries : <code>clear</code></a></li>
-<li><a href="#4-11-listing-all-executed-commands-code-history-code">4.11 Listing all executed commands : <code>history</code></a></li>
-<li><a href="#4-12-exiting-the-program-code-exit-code">4.12 Exiting the program : <code>exit</code></a></li>
-<li><a href="#4-13-saving-the-data">4.13 Saving the data</a></li>
+<li><a href="#4-6-undo-redo-code-undo-code-code-redo-code">4.6 Undo/Redo : <code>undo</code> , <code>redo</code></a></li>
+<li><a href="#4-7-view-non-private-details-of-a-person-code-view-code">4.7 View non-private details of a person : <code>view</code></a></li>
+<li><a href="#4-8-view-all-details-of-a-person-code-viewall-code">4.8 View all details of a person : <code>viewall</code></a></li>
+<li><a href="#4-9-clearing-all-entries-code-clear-code">4.9 Clearing all entries : <code>clear</code></a></li>
+<li><a href="#4-10-listing-all-executed-commands-code-history-code">4.10 Listing all executed commands : <code>history</code></a></li>
+<li><a href="#4-11-exiting-the-program-code-exit-code">4.11 Exiting the program : <code>exit</code></a></li>
+<li><a href="#4-12-saving-the-data">4.12 Saving the data</a></li>
 </ul>
 </li>
-<li><a href="#5-a-compact-summary">5 A Compact Summary</a></li>
+<li><a href="#5-a-compact-summary-cheatsheet">5 A Compact Summary/ “Cheatsheet”</a></li>
 <li><a href="#6-troubleshooting-faq">6 Troubleshooting/FAQ</a></li>
 </ul></div></div><div id="content"><div class="sect1">
 <h2 id="1-introduction"><a class="link" href="#1-introduction">1 Introduction</a></h2>
@@ -227,99 +226,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-6-view-non-private-details-of-a-person-code-view-code"><a class="link" href="#4-6-view-non-private-details-of-a-person-code-view-code">4.6 View non-private details of a person : <code>view</code></a></h3>
-<div class="paragraph">
-<p>Displays the non-private details of the specified person.<br>
-Format: <code>view INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Views the person at the specified <code>INDEX</code>.
-The index refers to the index number shown in the most recent listing.</p>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Similar to delete, it requires list or find command to be called at least once in the session for an index reference to view.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>view 2</code><br>
-Views the 2nd person in the Health Booklet.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>view 1</code><br>
-Views the 1st person in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="4-7-view-all-details-of-a-person-code-viewall-code"><a class="link" href="#4-7-view-all-details-of-a-person-code-viewall-code">4.7 View all details of a person : <code>viewall</code></a></h3>
-<div class="paragraph">
-<p>Displays all details (including private details) of the specified person.<br>
-Format: <code>viewall INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Views all details of the person at the specified <code>INDEX</code>.
-The index refers to the index number shown in the most recent listing.</p>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Similar to view and delete, it requires list or find command to be called at least once in the session for an index reference to viewall.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>viewall 2</code><br>
-Views all details of the 2nd person in the Health Booklet.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>viewall 1</code><br>
-Views all details of the 1st person in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="4-8-undo-redo-code-undo-code-code-redo-code"><a class="link" href="#4-8-undo-redo-code-undo-code-code-redo-code">4.8 Undo/Redo : <code>undo</code> , <code>redo</code></a></h3>
+<h3 id="4-6-undo-redo-code-undo-code-code-redo-code"><a class="link" href="#4-6-undo-redo-code-undo-code-code-redo-code">4.6 Undo/Redo : <code>undo</code> , <code>redo</code></a></h3>
 <div class="paragraph">
 <p><code>Undo</code> reverts the last command made. <code>Redo</code> reverts specifically the last undo command made when applicable.<br>
 Format: <code>undo</code><br>
@@ -376,20 +283,16 @@ Redo the deletion of 1st person in the results of the <code>find</code> command.
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-9-selecting-a-person-to-edit-his-her-appointment-code-edit-appointment-code"><a class="link" href="#4-9-selecting-a-person-to-edit-his-her-appointment-code-edit-appointment-code">4.9 Selecting a person to edit his/her appointment: <code>edit-appointment</code></a></h3>
+<h3 id="4-7-view-non-private-details-of-a-person-code-view-code"><a class="link" href="#4-7-view-non-private-details-of-a-person-code-view-code">4.7 View non-private details of a person : <code>view</code></a></h3>
 <div class="paragraph">
-<p>Select the person to edit appointment.<br>
-Format: 'edit-appointment INDEX'</p>
+<p>Displays the non-private details of the specified person.<br>
+Format: <code>view INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Access to the appointment of the person at the specified <code>INDEX</code>.
-The index refers to the index number shown in the most recent listing.<br></p>
-</div>
-<div class="paragraph">
-<p>Once access, edits to the selected person&#8217;s appoinments can be done repeated until user exits the
-edit-appointment session as detailed in 4.9.5.</p>
+<p>Views the person at the specified <code>INDEX</code>.
+The index refers to the index number shown in the most recent listing.</p>
 </div>
 </div>
 </div>
@@ -401,94 +304,99 @@ edit-appointment session as detailed in 4.9.5.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Similar to viewall, view and delete, it requires list or find command to be called at least once in the session for an index reference to edit-appointment.</p>
+<p>Similar to delete, it requires list or find command to be called at least once in the session for an index reference to view.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Examples:
-* <code>list</code><br>
-<code>edit-appointment 2</code><br>
-Access to the 2nd person in the Health Booklet.</p>
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
+<p><code>list</code><br>
+<code>view 2</code><br>
+Views the 2nd person in the Health Booklet.</p>
+</li>
+<li>
 <p><code>find Betsy</code><br>
-<code>edit-appointment 1</code><br>
-Access to the 1st person in the results of the <code>find</code> command.</p>
+<code>view 1</code><br>
+Views the 1st person in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="4-9-1-viewing-help-code-help-code"><a class="link" href="#4-9-1-viewing-help-code-help-code">4.9.1 Viewing help : <code>help</code></a></h4>
-<div class="paragraph">
-<p>Shows the help screen for the edit-appointment session
-Format: <code>help</code></p>
 </div>
-<div class="admonitionblock tip">
+<div class="sect2">
+<h3 id="4-8-view-all-details-of-a-person-code-viewall-code"><a class="link" href="#4-8-view-all-details-of-a-person-code-viewall-code">4.8 View all details of a person : <code>viewall</code></a></h3>
+<div class="paragraph">
+<p>Displays all details (including private details) of the specified person.<br>
+Format: <code>viewall INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Views all details of the person at the specified <code>INDEX</code>.
+The index refers to the index number shown in the most recent listing.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
 <table>
 <tr>
 <td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
+<i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Help is also shown if you enter an incorrect command e.g. <code>abcd</code></p>
+<p>Similar to view and delete, it requires list or find command to be called at least once in the session for an index reference to viewall.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-</div>
-<div class="sect3">
-<h4 id="4-9-2-listing-the-appointment-of-the-selected-person-code-list-code-more-coming-soon"><a class="link" href="#4-9-2-listing-the-appointment-of-the-selected-person-code-list-code-more-coming-soon">4.9.2 Listing the appointment of the selected person: <code>list</code> (more coming soon)</a></h4>
 <div class="paragraph">
-<p>Shows a list of all appointment of the selected person in the Health Booklet.<br>
-Format: <code>list</code></p>
+<p>Examples:</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="4-9-3-adding-appointment-to-the-selected-person-coming-soon"><a class="link" href="#4-9-3-adding-appointment-to-the-selected-person-coming-soon">4.9.3 Adding appointment to the selected person: (Coming soon)</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="4-9-4-deleting-appointment-of-the-selected-person-coming-soon"><a class="link" href="#4-9-4-deleting-appointment-of-the-selected-person-coming-soon">4.9.4 Deleting appointment of the selected person: (Coming soon)</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="4-9-5-exiting-the-edit-appointment-session-code-done-code"><a class="link" href="#4-9-5-exiting-the-edit-appointment-session-code-done-code">4.9.5 Exiting the edit-appointment session: <code>done</code></a></h4>
-<div class="paragraph">
-<p>Exits the edit-appointment session.<br>
-Format: <code>done</code></p>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>viewall 2</code><br>
+Views all details of the 2nd person in the Health Booklet.</p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>viewall 1</code><br>
+Views all details of the 1st person in the results of the <code>find</code> command.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-10-clearing-all-entries-code-clear-code"><a class="link" href="#4-10-clearing-all-entries-code-clear-code">4.10 Clearing all entries : <code>clear</code></a></h3>
+<h3 id="4-9-clearing-all-entries-code-clear-code"><a class="link" href="#4-9-clearing-all-entries-code-clear-code">4.9 Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the Health Booklet.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-11-listing-all-executed-commands-code-history-code"><a class="link" href="#4-11-listing-all-executed-commands-code-history-code">4.11 Listing all executed commands : <code>history</code></a></h3>
+<h3 id="4-10-listing-all-executed-commands-code-history-code"><a class="link" href="#4-10-listing-all-executed-commands-code-history-code">4.10 Listing all executed commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all executed commands in the current session.<br>
 Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-12-exiting-the-program-code-exit-code"><a class="link" href="#4-12-exiting-the-program-code-exit-code">4.12 Exiting the program : <code>exit</code></a></h3>
+<h3 id="4-11-exiting-the-program-code-exit-code"><a class="link" href="#4-11-exiting-the-program-code-exit-code">4.11 Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-13-saving-the-data"><a class="link" href="#4-13-saving-the-data">4.13 Saving the data</a></h3>
+<h3 id="4-12-saving-the-data"><a class="link" href="#4-12-saving-the-data">4.12 Saving the data</a></h3>
 <div class="paragraph">
 <p>Health Booklet data are saved in the hard disk automatically after any command that changes the data. As such, there is no need to save the data manually. These data are saved in a file called addressbook.txt in the project root folder.</p>
 </div>
@@ -499,7 +407,7 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="5-a-compact-summary"><a class="link" href="#5-a-compact-summary">5 A Compact Summary</a></h2>
+<h2 id="5-a-compact-summary-cheatsheet"><a class="link" href="#5-a-compact-summary-cheatsheet">5 A Compact Summary/ “Cheatsheet”</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -519,32 +427,16 @@ Format: <code>exit</code></p>
 <p><code>delete</code> : Delete a person in the Health Booklet</p>
 </li>
 <li>
-<p><code>view</code> : View the information of a person in the Health Booklet</p>
-</li>
-<li>
-<p><code>viewall</code> : View all information of a person in the Health Booklet</p>
-</li>
-<li>
 <p><code>undo</code> : Undo a change made previously</p>
 </li>
 <li>
 <p><code>redo</code> : Redo a change that was undone</p>
 </li>
 <li>
-<p><code>edit-appointment</code> : Selects a person to edit his/her appointment</p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>help</code> : Shows the help screen for the edit-appointment session</p>
+<p><code>view</code> : View the information of a person in the Health Booklet</p>
 </li>
 <li>
-<p><code>list</code> : Shows a list of all appointments for the selected persons (Coming soon)</p>
-</li>
-<li>
-<p><code>done</code> : Exit the edit-appointment session</p>
-</li>
-</ul>
-</div>
+<p><code>viewall</code> : View all information of a person in the Health Booklet</p>
 </li>
 <li>
 <p><code>clear</code> : Clear all entries in the Health Booklet</p>
@@ -587,4 +479,4 @@ Format: <code>exit</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 15:55:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 15:56:49 UTC</div></div></div></body></html>
