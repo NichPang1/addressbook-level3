@@ -15,15 +15,18 @@
 <li><a href="#4-7-view-all-details-of-a-person-code-viewall-code">4.7 View all details of a person : <code>viewall</code></a></li>
 <li><a href="#4-8-undo-redo-code-undo-code-code-redo-code">4.8 Undo/Redo : <code>undo</code> , <code>redo</code></a></li>
 <li><a href="#4-9-selecting-a-person-to-edit-his-her-appointment-code-edit-appointment-code">4.9 Selecting a person to edit his/her appointment: <code>edit-appointment</code></a></li>
-<li><a href="#4-10-clearing-all-entries-code-clear-code">4.10 Clearing all entries : <code>clear</code></a></li>
-<li><a href="#4-11-listing-all-executed-commands-code-history-code">4.11 Listing all executed commands : <code>history</code></a></li>
-<li><a href="#4-12-opening-medichat-code-chat-code">4.12 Opening MediChat : <code>chat</code></a></li>
-<li><a href="#4-13-exiting-the-program-code-exit-code">4.13 Exiting the program : <code>exit</code></a></li>
-<li><a href="#4-14-saving-the-data">4.14 Saving the data</a></li>
+<li><a href="#4-10-create-an-associate-between-a-doctor-and-a-patient-code-link-code">4.10 Create an associate between a doctor and a patient: <code>link</code></a></li>
+<li><a href="#4-11-listing-all-persons-associated-code-associatelist-code">4.11 Listing all persons associated: <code>associatelist</code></a></li>
+<li><a href="#4-12-clearing-all-entries-code-clear-code">4.12 Clearing all entries : <code>clear</code></a></li>
+<li><a href="#4-13-listing-all-executed-commands-code-history-code">4.13 Listing all executed commands : <code>history</code></a></li>
+<li><a href="#4-14-opening-medichat-code-chat-code">4.14 Opening MediChat : <code>chat</code></a></li>
+<li><a href="#4-15-exiting-the-program-code-exit-code">4.15 Exiting the program : <code>exit</code></a></li>
+<li><a href="#4-16-saving-the-data">4.16 Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#5-a-compact-summary">5 A Compact Summary</a></li>
 <li><a href="#6-troubleshooting-faq">6 Troubleshooting/FAQ</a></li>
+<li><a href="#7-known-bugs">7 Known Bugs</a></li>
 </ul></div></div><div id="content"><div class="sect1">
 <h2 id="1-introduction"><a class="link" href="#1-introduction">1 Introduction</a></h2>
 <div class="sectionbody">
@@ -332,7 +335,7 @@ Format: <code>redo</code></p>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p>Commands are undo-able if they are made within the browsing session.
+<p>Commands are undo-able if they make changes to the data and are made within the browsing session.
 Commands are redo-able if undo are made without other commands called.
 This two commands are especially useful when an erroneous command, such as delete, is made which causes change to the data.</p>
 </div>
@@ -377,6 +380,20 @@ Undo the deletion of the deleted person.<br>
 Redo the deletion of 1st person in the results of the <code>find</code> command.</p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Undo/Redo command currently is only implemented for <code>add</code>/<code>delete</code>/<code>clear</code>/<code>link</code> as other commands that make changes to the data might be incomplete</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -471,21 +488,119 @@ Format: <code>done</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-10-clearing-all-entries-code-clear-code"><a class="link" href="#4-10-clearing-all-entries-code-clear-code">4.10 Clearing all entries : <code>clear</code></a></h3>
+<h3 id="4-10-create-an-associate-between-a-doctor-and-a-patient-code-link-code"><a class="link" href="#4-10-create-an-associate-between-a-doctor-and-a-patient-code-link-code">4.10 Create an associate between a doctor and a patient: <code>link</code></a></h3>
+<div class="paragraph">
+<p>Create an association between person specified at INDEX1 and the person specified at INDEX2 <br>
+Format: <code>link INDEX1 INDEX2</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Links the person at the specified <code>INDEX1</code> with the person at the specified <code>INDEX2</code>.
+One of them must be a doctor and the other one must be a patient
+The index refers to the index number shown in the most recent listing.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Similar to viewall, view and delete, it requires list or find command to be called at least once in the session for an index reference to edit-appointment.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>link 1 2</code><br>
+Associate the 1st person in the MediBook with 2nd person in the MediBook.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-11-listing-all-persons-associated-code-associatelist-code"><a class="link" href="#4-11-listing-all-persons-associated-code-associatelist-code">4.11 Listing all persons associated: <code>associatelist</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all persons associated with the specified person <br>
+Format: <code>associatelist INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Show the people associate with the person at the specified <code>INDEX</code>.
+The index refers to the index number shown in the most recent listing.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Similar to viewall, view and delete, it requires list or find command to be called at least once in the session for an index reference to edit-appointment.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>associatelist 2</code><br>
+Views all persons associated with the 2nd person in the MediBook.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-12-clearing-all-entries-code-clear-code"><a class="link" href="#4-12-clearing-all-entries-code-clear-code">4.12 Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the MediBook.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-11-listing-all-executed-commands-code-history-code"><a class="link" href="#4-11-listing-all-executed-commands-code-history-code">4.11 Listing all executed commands : <code>history</code></a></h3>
+<h3 id="4-13-listing-all-executed-commands-code-history-code"><a class="link" href="#4-13-listing-all-executed-commands-code-history-code">4.13 Listing all executed commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all executed commands in the current session.<br>
 Format: <code>history</code></p>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>As some commands are incomplete, they might not be be reflected in <code>history</code> eventhough they are executed.
+If you encounter this, please feel free to let us know. Thank you!</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
-<h3 id="4-12-opening-medichat-code-chat-code"><a class="link" href="#4-12-opening-medichat-code-chat-code">4.12 Opening MediChat : <code>chat</code></a></h3>
+<h3 id="4-14-opening-medichat-code-chat-code"><a class="link" href="#4-14-opening-medichat-code-chat-code">4.14 Opening MediChat : <code>chat</code></a></h3>
 <div class="paragraph">
 <p>Opens up MediChat, an instant messaging client to instantly contact your colleagues.</p>
 </div>
@@ -498,14 +613,14 @@ To simulate chatting, multiple MediChat windows have to be opened.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-13-exiting-the-program-code-exit-code"><a class="link" href="#4-13-exiting-the-program-code-exit-code">4.13 Exiting the program : <code>exit</code></a></h3>
+<h3 id="4-15-exiting-the-program-code-exit-code"><a class="link" href="#4-15-exiting-the-program-code-exit-code">4.15 Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-14-saving-the-data"><a class="link" href="#4-14-saving-the-data">4.14 Saving the data</a></h3>
+<h3 id="4-16-saving-the-data"><a class="link" href="#4-16-saving-the-data">4.16 Saving the data</a></h3>
 <div class="paragraph">
 <p>MediBook data are saved in the hard disk automatically after any command that changes the data. As such, there is no need to save the data manually. These data are saved in a file called addressbook.txt in the project root folder.</p>
 </div>
@@ -570,7 +685,10 @@ Format: <code>exit</code></p>
 <p><code>history</code> : Shows a list of all executed commands</p>
 </li>
 <li>
-<p><code>association</code> : Coming soon in v1.3</p>
+<p><code>link</code> : Create an associate between a doctor and a patient</p>
+</li>
+<li>
+<p><code>associatelist</code> : List all persons associated</p>
 </li>
 <li>
 <p><code>chat</code> : Opens MediChat</p>
@@ -607,4 +725,23 @@ Format: <code>exit</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 07:04:45 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="7-known-bugs"><a class="link" href="#7-known-bugs">7 Known Bugs</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p><code>undo</code> command might show the error message "An error has occurred with the undo command"</p>
+<div class="ulist">
+<ul>
+<li>
+<p>if you encounter this, please let us know the steps that leads up to that point so we can replicate it</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 07:40:26 UTC</div></div></div></body></html>
