@@ -4,7 +4,7 @@
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-about">2 About</a></li>
 <li><a href="#3-starting-the-program">3 Starting the program</a></li>
-<li><a href="#4-features-of-the-health-booklet">4 Features of the Health Booklet</a>
+<li><a href="#4-features-of-the-medibook">4 Features of the MediBook</a>
 <ul class="sectlevel2">
 <li><a href="#4-1-viewing-help-code-help-code">4.1 Viewing help : <code>help</code></a></li>
 <li><a href="#4-2-adding-a-person-code-add-code">4.2 Adding a person: <code>add</code></a></li>
@@ -28,7 +28,7 @@
 <h2 id="1-introduction"><a class="link" href="#1-introduction">1 Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Health Booklet v1.2 allows healthcare professionals to keep track of patients’ details, arrange their schedule based on their patients’ appointments and communicate efficiently between colleagues.</p>
+<p>The MediBook v1.2 allows healthcare professionals to keep track of patients’ details, arrange their schedule based on their patients’ appointments and communicate efficiently between colleagues.</p>
 </div>
 </div>
 </div>
@@ -36,10 +36,10 @@
 <h2 id="2-about"><a class="link" href="#2-about">2 About</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This user guide provides an overview for healthcare professionals on the usage of Health Booklet once Health Booklet is set up.</p>
+<p>This user guide provides an overview for healthcare professionals on the usage of MediBook once MediBook is set up.</p>
 </div>
 <div class="paragraph">
-<p>However, setting up this Health Booklet requires basic familiarity with integrated developer environment (IDE) as there is no user-friendly installer. Please seek help from the technician staff or refer to the <a href="DeveloperGuide.html#setting-up">Setting up</a> section to learn how to set up the project.</p>
+<p>However, setting up this MediBook requires basic familiarity with integrated developer environment (IDE) as there is no user-friendly installer. Please seek help from the technician staff or refer to the <a href="DeveloperGuide.html#setting-up">Setting up</a> section to learn how to set up the project.</p>
 </div>
 </div>
 </div>
@@ -61,13 +61,16 @@
 <p>Click <code>Run Main.main()</code></p>
 </li>
 <li>
-<p>Enter your Username and Password according to the prompts</p>
-</li>
-<li>
-<p>Upon successful login, <code>Welcome to Health Booklet</code> will appear, program will exit upon login failure, i.e. 3 incorrect username/password tries</p>
-</li>
-<li>
 <p>The GUI should appear in a few seconds</p>
+</li>
+<li>
+<p>Enter "Username" in the username field and "Password" in the password field according to the prompts</p>
+</li>
+<li>
+<p>Upon successful login, GUI <code>Welcome to MediBook</code> will appear.</p>
+</li>
+<li>
+<p>If incorrect username and password is entered, both fields will be cleared and you can try logging in again.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/Ui.png" alt="Ui">
@@ -79,7 +82,7 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="4-features-of-the-health-booklet"><a class="link" href="#4-features-of-the-health-booklet">4 Features of the Health Booklet</a></h2>
+<h2 id="4-features-of-the-medibook"><a class="link" href="#4-features-of-the-medibook">4 Features of the MediBook</a></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="4-1-viewing-help-code-help-code"><a class="link" href="#4-1-viewing-help-code-help-code">4.1 Viewing help : <code>help</code></a></h3>
@@ -104,7 +107,7 @@
 <div class="sect2">
 <h3 id="4-2-adding-a-person-code-add-code"><a class="link" href="#4-2-adding-a-person-code-add-code">4.2 Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the Health Booklet.<br>
+<p>Adds a person to the MediBook.<br>
 Format: <code>add NAME [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [p]s/TITLE [d/DD-MM-YYYY]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
@@ -139,7 +142,7 @@ be seen using the <code>viewall</code> command.</p>
 <div class="sect2">
 <h3 id="4-3-listing-all-persons-code-list-code"><a class="link" href="#4-3-listing-all-persons-code-list-code">4.3 Listing all persons : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the Health Booklet.<br>
+<p>Shows a list of all persons in the MediBook.<br>
 Format: <code>list</code></p>
 </div>
 </div>
@@ -183,7 +186,7 @@ Returns Any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <div class="sect2">
 <h3 id="4-5-deleting-a-person-code-delete-code"><a class="link" href="#4-5-deleting-a-person-code-delete-code">4.5 Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the Health Booklet. Reversible within the session using the undo command (section 4.6).<br>
+<p>Deletes the specified person from the MediBook. Reversible within the session using the undo command (section 4.6).<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -217,7 +220,7 @@ in the session for delete can have an index reference to delete.</p>
 <li>
 <p><code>list</code><br>
 <code>delete 2</code><br>
-Deletes the 2nd person in the Health Booklet.</p>
+Deletes the 2nd person in the MediBook.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -263,7 +266,7 @@ The index refers to the index number shown in the most recent listing.</p>
 <li>
 <p><code>list</code><br>
 <code>view 2</code><br>
-Views the 2nd person in the Health Booklet.</p>
+Views the 2nd person in the MediBook.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -309,7 +312,7 @@ The index refers to the index number shown in the most recent listing.</p>
 <li>
 <p><code>list</code><br>
 <code>viewall 2</code><br>
-Views all details of the 2nd person in the Health Booklet.</p>
+Views all details of the 2nd person in the MediBook.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -358,11 +361,11 @@ However, once a change is made after an undo, a redo to previous changes that ar
 <li>
 <p><code>list</code><br>
 <code>delete 2</code><br>
-Deletes the 2nd person in the Health Booklet.<br>
+Deletes the 2nd person in the MediBook.<br>
 <code>undo</code><br>
 Undo the deletion of the deleted person.<br>
 <code>redo</code><br>
-Redo the deletion of 2nd person in the Health Booklet.</p>
+Redo the deletion of 2nd person in the MediBook.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -412,7 +415,7 @@ edit-appointment session as detailed in 4.9.5.</p>
 <p>Examples:
 * <code>list</code><br>
 <code>edit-appointment 2</code><br>
-Access to the 2nd person in the Health Booklet.</p>
+Access to the 2nd person in the MediBook.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -447,7 +450,7 @@ Format: <code>help</code></p>
 <div class="sect3">
 <h4 id="4-9-2-listing-the-appointment-of-the-selected-person-code-list-code-more-coming-soon"><a class="link" href="#4-9-2-listing-the-appointment-of-the-selected-person-code-list-code-more-coming-soon">4.9.2 Listing the appointment of the selected person: <code>list</code> (more coming soon)</a></h4>
 <div class="paragraph">
-<p>Shows a list of all appointment of the selected person in the Health Booklet.<br>
+<p>Shows a list of all appointment of the selected person in the MediBook.<br>
 Format: <code>list</code></p>
 </div>
 </div>
@@ -470,7 +473,7 @@ Format: <code>done</code></p>
 <div class="sect2">
 <h3 id="4-10-clearing-all-entries-code-clear-code"><a class="link" href="#4-10-clearing-all-entries-code-clear-code">4.10 Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the Health Booklet.<br>
+<p>Clears all entries from the MediBook.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
@@ -504,7 +507,7 @@ Format: <code>exit</code></p>
 <div class="sect2">
 <h3 id="4-14-saving-the-data"><a class="link" href="#4-14-saving-the-data">4.14 Saving the data</a></h3>
 <div class="paragraph">
-<p>Health Booklet data are saved in the hard disk automatically after any command that changes the data. As such, there is no need to save the data manually. These data are saved in a file called addressbook.txt in the project root folder.</p>
+<p>MediBook data are saved in the hard disk automatically after any command that changes the data. As such, there is no need to save the data manually. These data are saved in a file called addressbook.txt in the project root folder.</p>
 </div>
 <div class="paragraph">
 <p>However, the history of commands made are only available within the browsing session and would no longer be available after the exit or the program is closed. Undo and Redo commands are also only applicable within the browsing session.</p>
@@ -521,7 +524,7 @@ Format: <code>exit</code></p>
 <p><code>help</code> : Shows the help screen</p>
 </li>
 <li>
-<p><code>add</code> : Adds a person into the Health Booklet</p>
+<p><code>add</code> : Adds a person into the MediBook</p>
 </li>
 <li>
 <p><code>list</code> : Shows a list of all persons in the Heath Booklet.</p>
@@ -530,13 +533,13 @@ Format: <code>exit</code></p>
 <p><code>find</code> : Finds persons whose names contain any of the given keywords</p>
 </li>
 <li>
-<p><code>delete</code> : Delete a person in the Health Booklet</p>
+<p><code>delete</code> : Delete a person in the MediBook</p>
 </li>
 <li>
-<p><code>view</code> : View the information of a person in the Health Booklet</p>
+<p><code>view</code> : View the information of a person in the MediBook</p>
 </li>
 <li>
-<p><code>viewall</code> : View all information of a person in the Health Booklet</p>
+<p><code>viewall</code> : View all information of a person in the MediBook</p>
 </li>
 <li>
 <p><code>undo</code> : Undo a change made previously</p>
@@ -561,7 +564,7 @@ Format: <code>exit</code></p>
 </div>
 </li>
 <li>
-<p><code>clear</code> : Clear all entries in the Health Booklet</p>
+<p><code>clear</code> : Clear all entries in the MediBook</p>
 </li>
 <li>
 <p><code>history</code> : Shows a list of all executed commands</p>
@@ -604,4 +607,4 @@ Format: <code>exit</code></p>
 </tbody>
 </table>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-01 16:50:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-02 07:04:45 UTC</div></div></div></body></html>
