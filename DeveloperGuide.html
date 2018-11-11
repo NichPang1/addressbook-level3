@@ -10,9 +10,13 @@
 </li>
 <li><a href="#3-design">3 Design</a></li>
 <li><a href="#4-implementation">4. Implementation</a>
-<ul class="sectlevel2">
-<li><a href="#4-1-state-control-undo-redo">4.1  State control (undo/redo)</a></li>
-<li><a href="#4-2-login-system">4.2 Login System</a></li>
+<ul class="sectlevel3">
+<li><a href="#4-1-1-current-implementation">4.1.1  Current implementation</a></li>
+<li><a href="#4-1-2-reason-for-this-implementation">4.1.2  Reason for this implementation</a></li>
+<li><a href="#4-1-3-alternative-consideration">4.1.3  Alternative consideration</a></li>
+<li><a href="#4-2-1-current-implementation">4.2.1 Current Implementation</a></li>
+<li><a href="#4-2-2-reason-for-this-implementation">4.2.2 Reason for this implementation</a></li>
+<li><a href="#4-2-3-alternative-consideration">4.2.3 Alternative consideration</a></li>
 <li><a href="#4-3-scheduling">4.3 Scheduling</a></li>
 </ul>
 </li>
@@ -32,7 +36,7 @@
 <h2 id="1-introduction"><a class="link" href="#1-introduction">1 Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The Health Booklet v1.2 is an application that function as an advance logbook for in healthcare settings. It allows healthcare professionals to keep track of patients’ details, arrange their schedule based on their patients’ appointments and communicate efficiently between colleagues through instant messaging.</p>
+<p>The MediBook v1.4 is an application that function as an advance logbook for in healthcare settings. It allows healthcare professionals to keep track of patients’ details, arrange their schedule based on their patients’ appointments and communicate efficiently between colleagues through instant messaging.</p>
 </div>
 <div class="paragraph">
 <p>This Developer Guide is intended for users with basic technical background as it details the setting up of our application, the design of our software architecture, describe the implementation of our key features, and the testing involved in our software. Appendix includes user stories and use case for reference.</p>
@@ -128,40 +132,81 @@
 <h2 id="4-implementation"><a class="link" href="#4-implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section describes some noteworthy details on how certain features are implemented.</p>
-</div>
-<div class="sect2">
-<h3 id="4-1-state-control-undo-redo"><a class="link" href="#4-1-state-control-undo-redo">4.1  State control (undo/redo)</a></h3>
-<div class="paragraph">
-<p>The state control feature allows the user to manipulate the different states of the Health Booklet in the current session with the undo and redo command. This section will describe the implementation of this feature.</p>
+<p>This section describes some noteworthy details on how certain features are implemented.
+=== 4.1  State control (undo/redo)
+The state control feature allows the user to manipulate the different states of the MediBook in the current session with the undo and redo command. This section will describe the implementation of this feature.</p>
 </div>
 <div class="sect3">
 <h4 id="4-1-1-current-implementation"><a class="link" href="#4-1-1-current-implementation">4.1.1  Current implementation</a></h4>
 <div class="paragraph">
-<p>The state control mechanism is managed by the CommandHistory class. It stores the various states of the Health Booklet in an arraylist <code><strong>addressBookStates</strong></code> with the <code><strong>stateIterator</strong></code> pointing to the latest state in the <code><strong>addressBookStates</strong></code>.</p>
+<p>The state control mechanism is managed by the CommandStack class. It supports the undo-ing and redo-ing of commands that modifies the contents of the MediBook in the current session.</p>
 </div>
 <div class="paragraph">
-<p><strong>The following core methods are in place to assist in the mechanism:</strong></p>
+<p>These commands will extend from <code>UndoAbleCommand</code> instead of <code>Command</code>. These commands are then managed by the <strong>undoStack</strong> and the <strong>redoStack</strong>.
+The following diagram shows the inheritance diagram for commands:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/UndoAbleCommand.png" alt="UndoAbleCommand">
+</div>
+</div>
+<div class="paragraph">
+<p>Commands that inherits from <code>Command</code> are implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">FindCommand</span> <span class="directive">extends</span> Command {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute() {
+        <span class="comment">//Find Logic</span>
+    }
+    <span class="comment">//...more code...</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On the other hand, commands that inherit from UndoAbleCommand are implemented this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">ClearCommand</span> <span class="directive">extends</span> UndoAbleCommand {
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute() {
+        <span class="comment">//Clear Logic</span>
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> executeUndo() {
+        <span class="comment">//Logic to undo clear</span>
+    }
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> <span class="type">void</span> executeRedo() {
+        <span class="comment">//Logic to redo clear</span>
+    }
+    <span class="comment">//...more code...</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>The following core methods are in place to assist the mechanism:</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code><strong>saveInitialState()</strong></code>- Saves the initial state of the Health Booklet state on start-up in addressBookStates.<br></p>
+<p><code><strong>undoLast()</strong></code>- Undo the command at the top of the <strong>undoStack</strong> and push it to the <strong>redoStack</strong><br></p>
 </li>
 <li>
-<p><code><strong>addCurrentState()</strong></code>- Saves the current Health Booklet state in addressBookStates and move the stateIterator forward.<br></p>
+<p><code><strong>redoLast()</strong></code>- Redo the command at the top of the <strong>redoStack</strong> and push it to the <strong>undoStack</strong><br></p>
 </li>
 <li>
-<p><code><strong>undoLast()</strong></code>- Restores the previous Health Booklet state from addressBookStates.<br></p>
+<p><code><strong>truncateOldPath()</strong></code>- Clears the <strong>redoStack</strong> following a change made after undo-ing.<br></p>
 </li>
 <li>
-<p><code><strong>redoLast()</strong></code>- Restores a previously undone Health Booklet state from addressBookStates.<br></p>
+<p><code><strong>addCommandToStack()</strong></code>- Push an UndoAbleCommand into the command stack<br></p>
 </li>
 <li>
-<p><code><strong>truncateOldPath()</strong></code>- Remove Health Booklet states from addressBookStates following a change made after undo-ing. (will be discussed in more details below)<br></p>
-</li>
-<li>
-<p><code><strong>checkForAction()</strong></code>- Check whether the truncateOldPath() method needs to be called before calling addCurrentState().<br></p>
+<p><code><strong>checkForAction()</strong></code>- Check whether the <code>truncateOldPath()</code> method needs to be called before calling <code>addCommandToStack()</code>.<br></p>
 </li>
 </ul>
 </div>
@@ -169,84 +214,76 @@
 <p><strong>Below is an example usage scenario and the behaviours of the component at a given time:</strong></p>
 </div>
 <div class="paragraph">
-<p>(Diagrams will be added in the future for better visualisation of this section.)</p>
-</div>
-<div class="paragraph">
 <p><strong>1. On start-up:</strong></p>
 </div>
 <div class="paragraph">
-<p>CommandHistory will be initialised with the initial state of the Health Booklet with <code><strong>saveInitialState()</strong></code> and the <code><strong>stateIterator</strong></code> will be initialised to 0.</p>
+<p>CommandHistory will be initialised with the initial state of the MediBook with <code><strong>saveInitialState()</strong></code> and the <code><strong>stateIterator</strong></code> will be initialised to 0.</p>
 </div>
 <div class="paragraph">
-<p><strong>2. User executes a command that make changes to the Health Booklet (e.g add John Doe&#8230;&#8203;):</strong></p>
+<p><strong>2. User executes a command that make changes to the MediBook (e.g add John Doe&#8230;&#8203;):</strong></p>
 </div>
 <div class="paragraph">
-<p>The <code>add</code> command calls <code><strong>CommandHistory.checkForAction()</strong></code> which will determine whether this command was made following an <code>undo</code> command and therefore requires <code><strong>truncateOldPath()</strong></code> to be called (in this case it won&#8217;t be called). After which the <code><strong>addCurrentState()</strong></code> method will be called, which moves the <code><strong>stateIterator</strong></code> forward from 0 to 1 and saves the current Health Booklet state in <code><strong>addressBookStates</strong></code> arraylist.</p>
+<p>The <code>add</code> command calls <code><strong>CommandHistory.checkForAction()</strong></code> which will determine whether this command was made following an <code>undo</code> command and therefore requires <code><strong>truncateOldPath()</strong></code> to be called (in this case it won&#8217;t be called). After which the <code><strong>addCurrentState()</strong></code> method will be called, which moves the <code><strong>stateIterator</strong></code> forward from 0 to 1 and saves the current MediBook state in <code><strong>addressBookStates</strong></code> arraylist.</p>
 </div>
 <div class="paragraph">
-<p>Note: <code><strong>CommandHistory.checkForAction()</strong></code> will only be called if the command has been executed successfully. If it fails its execution, the Health Booklet state will not be saved into the <code><strong>addressBookStates</strong></code>.</p>
+<p>Note: <code><strong>CommandHistory.checkForAction()</strong></code> will only be called if the command has been executed successfully. If it fails its execution, the MediBook state will not be saved into the <code><strong>addressBookStates</strong></code>.</p>
 </div>
 <div class="paragraph">
 <p><strong>3. User wants to undo the change they just made and executes the <code>undo</code> command:</strong></p>
 </div>
 <div class="paragraph">
-<p>The undo command calls <code><strong>CommandHistory.undoLast()</strong></code> which will move the <code><strong>stateIterator</strong></code> from 1 to 0 and restores the Health Booklet state stored in <code><strong>addressBookStates[0]</strong></code>.</p>
+<p>The undo command calls <code><strong>CommandHistory.undoLast()</strong></code> which will move the <code><strong>stateIterator</strong></code> from 1 to 0 and restores the MediBook state stored in <code><strong>addressBookStates[0]</strong></code>.</p>
 </div>
 <div class="paragraph">
 <p>Note: If the user execute <code>undo</code> command when the <code><strong>stateIterator</strong></code> is at 0, the <code><strong>undoLast()</strong></code> method will throw a <code><strong>HistoryOutOfBoundException()</strong></code> which will be caught in the UndoCommand class and will display an error to the user instead.</p>
 </div>
 <div class="paragraph">
-<p><strong>4. User executes another command that make changes to the Health Booklet after the undo (e.g delete 1):</strong></p>
+<p><strong>4. User executes another command that make changes to the MediBook after the undo (e.g delete 1):</strong></p>
 </div>
 <div class="paragraph">
-<p>The <code>delete</code> command calls <code><strong>CommandHistory.checkForAction()</strong></code> which determines that this command was made following an <code>undo</code> command and therefore requires <code><strong>truncateOldPath()</strong></code> to be called. In this case, all states saved in the <code><strong>addressBookStates</strong></code> after index 0 will be cleared and will be unable to redone. After which the <code><strong>addCurrentState()</strong></code> method will be called, which moves the <code><strong>stateIterator</strong></code> forward from 0 to 1 and saves the current Health Booklet state in <code><strong>addressBookStates</strong></code> arraylist.</p>
+<p>The <code>delete</code> command calls <code><strong>CommandHistory.checkForAction()</strong></code> which determines that this command was made following an <code>undo</code> command and therefore requires <code><strong>truncateOldPath()</strong></code> to be called. In this case, all states saved in the <code><strong>addressBookStates</strong></code> after index 0 will be cleared and will be unable to redone. After which the <code><strong>addCurrentState()</strong></code> method will be called, which moves the <code><strong>stateIterator</strong></code> forward from 0 to 1 and saves the current MediBook state in <code><strong>addressBookStates</strong></code> arraylist.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="4-1-2-reason-for-this-implementation"><a class="link" href="#4-1-2-reason-for-this-implementation">4.1.2  Reason for this implementation</a></h4>
 <div class="paragraph">
-<p>Storing the different states of the Health Booklet is relatively easy to implement and it is less prone to errors. However, a drawback for this implementation is the high memory usage required which might cause performance issues.</p>
+<p>Storing the different states of the MediBook is relatively easy to implement and it is less prone to errors. However, a drawback for this implementation is the high memory usage required which might cause performance issues.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="4-1-3-alternative-consideration"><a class="link" href="#4-1-3-alternative-consideration">4.1.3  Alternative consideration</a></h4>
 <div class="paragraph">
-<p>An alternative to the current implementation is to save the list of commands executed in the arraylist instead of the whole Health Booklet and reverse them when attempting to undo. However, this requires implemented class to know how to reverse each command. For example, undo-ing a <code>delete</code> command requires the class to perform <code>add</code> and the class has to remember all the arguments required to create the same person that was deleted.</p>
+<p>An alternative to the current implementation is to save the list of commands executed in the arraylist instead of the whole MediBook and reverse them when attempting to undo. However, this requires implemented class to know how to reverse each command. For example, undo-ing a <code>delete</code> command requires the class to perform <code>add</code> and the class has to remember all the arguments required to create the same person that was deleted.
+=== 4.2 Login System
+Securely logs user on to MediBook</p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="4-2-login-system"><a class="link" href="#4-2-login-system">4.2 Login System</a></h3>
-<div class="paragraph">
-<p>Securely logs user on to Health Booklet</p>
 </div>
 <div class="sect3">
 <h4 id="4-2-1-current-implementation"><a class="link" href="#4-2-1-current-implementation">4.2.1 Current Implementation</a></h4>
 <div class="paragraph">
-<p>Login is implemented before the main GUI launches. Upon the launch of Health Booklet, Health Booklet prompts for two input from the User, username and password. Health Booklet then compares the given pair of inputs with loginstorage.txt.</p>
+<p>Login is implemented before the main GUI launches. Upon the launch of MediBook, MediBook prompts for two input from the User, username and password. MediBook then compares the given pair of inputs with loginstorage.txt.</p>
 </div>
 <div class="paragraph">
-<p>loginstorage.txt stores the username of all users and the hashes of their passwords. Health Booklet iterates through loginstorage.txt to find the matching username, and the corresponding hashed password. The password entered is hashed using Java’s SHA-512 hashing algorithm. The result is then matched with the hash stored in loginstorage.txt, if both matches then login is successful and user is allowed into Health Booklet. If they do not match, then the program is terminated.</p>
+<p>loginstorage.txt stores the username of all users and the hashes of their passwords. MediBook iterates through loginstorage.txt to find the matching username, and the corresponding hashed password. The password entered is hashed using Java’s SHA-512 hashing algorithm. The result is then matched with the hash stored in loginstorage.txt, if both matches then login is successful and user is allowed into MediBook. If they do not match, then the program is terminated.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="4-2-2-reason-for-this-implementation"><a class="link" href="#4-2-2-reason-for-this-implementation">4.2.2 Reason for this implementation</a></h4>
 <div class="paragraph">
 <p>There is no need to open the GUI, if User fails to log in, thus login is implemented before the GUI launches.
-To ensure a secure Health Booklet, user login profiles must be stored securely. Storing the hash result instead of the password ensures that should loginstorage.txt be compromised, the actual passwords are still unknown to the perpetrators.</p>
+To ensure a secure MediBook, user login profiles must be stored securely. Storing the hash result instead of the password ensures that should loginstorage.txt be compromised, the actual passwords are still unknown to the perpetrators.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="4-2-3-alternative-consideration"><a class="link" href="#4-2-3-alternative-consideration">4.2.3 Alternative consideration</a></h4>
 <div class="paragraph">
-<p>Java Authentication and Authorisation System (JAAS) was also considered when deciding on how to implement Health Booklet’s login system. However, using JAAS is more restrictive than the current implementation which allows for easy change in hashing algorithms used and different security features in the future. JAAS is also harder to implement and as Health Booklet is currently targeted at about 1000 users, there is no need to use JAAS.</p>
-</div>
+<p>Java Authentication and Authorisation System (JAAS) was also considered when deciding on how to implement MediBook’s login system. However, using JAAS is more restrictive than the current implementation which allows for easy change in hashing algorithms used and different security features in the future. JAAS is also harder to implement and as MediBook is currently targeted at about 1000 users, there is no need to use JAAS.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="4-3-scheduling"><a class="link" href="#4-3-scheduling">4.3 Scheduling</a></h3>
 <div class="paragraph">
-<p>Scheduling allows appointment to be stored in Health Booklet. The Health Booklet recognise a schedule date with the tag 'd/'.</p>
+<p>Scheduling allows appointment to be stored in MediBook. The MediBook recognise a schedule date with the tag 'd/'.</p>
 </div>
 <div class="sect3">
 <h4 id="4-3-1-current-implementation"><a class="link" href="#4-3-1-current-implementation">4.3.1 Current Implementation</a></h4>
@@ -269,7 +306,7 @@ To ensure a secure Health Booklet, user login profiles must be stored securely. 
 <div class="sect3">
 <h4 id="4-3-3-future-alternative-implementation"><a class="link" href="#4-3-3-future-alternative-implementation">4.3.3 Future/Alternative Implementation</a></h4>
 <div class="paragraph">
-<p>In future versions, the following details would be slowly incremented to ensure a smooth user experience while using the scheduling feature of Health Booklet.</p>
+<p>In future versions, the following details would be slowly incremented to ensure a smooth user experience while using the scheduling feature of MediBook.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -308,7 +345,7 @@ When the server sends a line beginning with "MESSAGE " then all characters follo
 <h2 id="5-testing"><a class="link" href="#5-testing">5.Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Testing the Health Booklet is important as it verifies that the Health Booklet is functioning and up-to-date. This can be done so by going into IntelliJ, right-click on the test folder and choose Run 'All Tests'.</p>
+<p>Testing the MediBook is important as it verifies that the MediBook is functioning and up-to-date. This can be done so by going into IntelliJ, right-click on the test folder and choose Run 'All Tests'.</p>
 </div>
 </div>
 </div>
@@ -384,7 +421,7 @@ When the server sends a line beginning with "MESSAGE " then all characters follo
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the Health Booklet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user with many persons in the MediBook</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">sort persons by name</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">locate a person easily</p></td>
 </tr>
@@ -392,7 +429,7 @@ When the server sends a line beginning with "MESSAGE " then all characters follo
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">see history of commands made</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">identify changes that were made to the Health Booklet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">identify changes that were made to the MediBook</p></td>
 </tr>
 </tbody>
 </table>
@@ -402,7 +439,7 @@ When the server sends a line beginning with "MESSAGE " then all characters follo
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix B: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>Health Booklet</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>MediBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
 <div class="sect2">
 <h3 id="use-case-uc01-login"><a class="link" href="#use-case-uc01-login">Use case: UC01 - Login</a></h3>
@@ -412,10 +449,10 @@ When the server sends a line beginning with "MESSAGE " then all characters follo
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User opens up Health Booklet</p>
+<p>User opens up MediBook</p>
 </li>
 <li>
-<p>Health Booklet prompts for user to enter Username and Password</p>
+<p>MediBook prompts for user to enter Username and Password</p>
 </li>
 <li>
 <p>User keys in Username and Password</p>
@@ -438,7 +475,7 @@ When the server sends a line beginning with "MESSAGE " then all characters follo
 <div class="ulist">
 <ul>
 <li>
-<p>3a1 Health Booklet requests for Username and Password again</p>
+<p>3a1 MediBook requests for Username and Password again</p>
 </li>
 <li>
 <p>3a2 User keys in Username and Password</p>
@@ -469,10 +506,10 @@ When the server sends a line beginning with "MESSAGE " then all characters follo
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User logs in to Health Booklet (UC01)</p>
+<p>User logs in to MediBook (UC01)</p>
 </li>
 <li>
-<p>Health Booklet will look up the corresponding access level of User</p>
+<p>MediBook will look up the corresponding access level of User</p>
 </li>
 <li>
 <p>Based on the designated access level of the User, various viewing and editing rights will be handed to User</p>
@@ -491,13 +528,13 @@ When the server sends a line beginning with "MESSAGE " then all characters follo
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User logs in to Health Booklet (UC01)</p>
+<p>User logs in to MediBook (UC01)</p>
 </li>
 <li>
-<p>Health Booklet determines access level of User (UC02)</p>
+<p>MediBook determines access level of User (UC02)</p>
 </li>
 <li>
-<p>Health Booklet will display information that User has access to and hide information that is beyond User’s access level</p>
+<p>MediBook will display information that User has access to and hide information that is beyond User’s access level</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -516,13 +553,13 @@ When the server sends a line beginning with "MESSAGE " then all characters follo
 <p>User requests to list persons</p>
 </li>
 <li>
-<p>Health Booklet shows a list of persons</p>
+<p>MediBook shows a list of persons</p>
 </li>
 <li>
 <p>User requests to delete a specific person in the list</p>
 </li>
 <li>
-<p>Health Booklet deletes the person.</p>
+<p>MediBook deletes the person.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -545,7 +582,7 @@ When the server sends a line beginning with "MESSAGE " then all characters follo
 <div class="ulist">
 <ul>
 <li>
-<p>3a1. Health Booklet shows an error message.</p>
+<p>3a1. MediBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -595,4 +632,4 @@ When the server sends a line beginning with "MESSAGE " then all characters follo
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 15:08:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 16:09:49 UTC</div></div></div></body></html>
