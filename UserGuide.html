@@ -171,7 +171,27 @@ Returns Any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <h3 id="4-5-adding-a-person-code-add-code"><a class="link" href="#4-5-adding-a-person-code-add-code">4.5 Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to the MediBook.<br>
-Format: <code>add NAME n/NRIC [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [p]s/TITLE [d/DD-MM-YYYY]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add NAME n/NRIC [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [p]s/TITLE [d/DD-MM-YYYY-HH:MM]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>TITLE is used to differentiate Doctor and Patient.</p>
+</div>
+<div class="paragraph">
+<p>DD-MM-YYYY-HH:MM is used to record appointment dates and their starting time.</p>
+</div>
+<div class="paragraph">
+<p>TAG is used to tag medical conditions and other important information</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -184,7 +204,7 @@ items with <code>&#8230;&#8203;</code> after them can have multiple instances. O
 be seen using the <code>viewall</code> command.</p>
 </div>
 <div class="paragraph">
-<p>Persons can have any number of schedule dates and tags (including 0)</p>
+<p>Persons can have any number of appointment dates and tags (including 0)</p>
 </div>
 </div>
 </div>
@@ -194,10 +214,10 @@ be seen using the <code>viewall</code> command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add John Doe n/S1239875U p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 s/Patient d/01-01-2019 t/hasDiabetesType2 t/onInsulinTherapy</code></p>
+<p><code>add John Doe n/S1239875U p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 s/Patient d/01-01-2019-13:00 d/09-11-2018-14:00 t/hasDiabetesType2 t/onInsulinTherapy</code></p>
 </li>
 <li>
-<p><code>add Betsy Crowe n/S7654321T pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison s/Doctor d/04-10-2018 d/09-11-2018</code></p>
+<p><code>add Betsy Crowe n/S7654321T pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison s/Doctor</code></p>
 </li>
 </ul>
 </div>
@@ -379,12 +399,12 @@ Format: <code>list</code></p>
 <h4 id="4-9-3-adding-appointment-to-the-selected-person-code-add-code"><a class="link" href="#4-9-3-adding-appointment-to-the-selected-person-code-add-code">4.9.3 Adding appointment to the selected person: <code>add</code></a></h4>
 <div class="paragraph">
 <p>Adds appointments to the selected person in MediBook.<br>
-Format: <code>add DD-MM-YYYY&#8230;&#8203;</code></p>
+Format: <code>add DD-MM-YYYY-HH:MM&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><code>&#8230;&#8203;</code> indicated that therevcan have multiple instances.</p>
+<p><code>&#8230;&#8203;</code> indicated that there can have multiple appointment.</p>
 </div>
 <div class="paragraph">
 <p>Appointments that are already reorded (and duplicates) would not be added.</p>
@@ -397,10 +417,10 @@ Format: <code>add DD-MM-YYYY&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add 01-01-2019</code></p>
+<p><code>add 01-01-2019-13:00</code></p>
 </li>
 <li>
-<p><code>add 01-01-2019 02-01-2019 03-01-2019</code></p>
+<p><code>add 01-01-2019-13:00 02-01-2019-14:00 03-01-2019-15:00</code></p>
 </li>
 </ul>
 </div>
@@ -409,12 +429,12 @@ Format: <code>add DD-MM-YYYY&#8230;&#8203;</code></p>
 <h4 id="4-9-4-deleting-appointment-of-the-selected-person-code-delete-code"><a class="link" href="#4-9-4-deleting-appointment-of-the-selected-person-code-delete-code">4.9.4 Deleting appointment of the selected person: <code>delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes appointments from the selected person in MediBook.<br>
-Format: <code>delete DD-MM-YYY&#8230;&#8203;</code></p>
+Format: <code>delete DD-MM-YYY-HH:MM&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
-<p><code>&#8230;&#8203;</code> indicated that therevcan have multiple instances.</p>
+<p><code>&#8230;&#8203;</code> indicated that there can have multiple appointment.</p>
 </div>
 </div>
 </div>
@@ -424,10 +444,10 @@ Format: <code>delete DD-MM-YYY&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 01-01-2019</code></p>
+<p><code>delete 01-01-2019-13:00</code></p>
 </li>
 <li>
-<p><code>delete 01-01-2019 02-01-2019 03-01-2019</code></p>
+<p><code>delete 01-01-2019-13:00 02-01-2019-14:00 03-01-2019-15:00</code></p>
 </li>
 </ul>
 </div>
@@ -787,4 +807,4 @@ Format: <code>exit</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 16:09:49 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 16:11:54 UTC</div></div></div></body></html>
