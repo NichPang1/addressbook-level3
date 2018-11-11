@@ -3,25 +3,28 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>User Guide</h1><div id="toc" class="toc"><div id="toctitle">An Overview of the User Guide:</div><ul class="sectlevel1">
 <li><a href="#1-introduction">1 Introduction</a></li>
 <li><a href="#2-about">2 About</a></li>
-<li><a href="#3-starting-the-program">3 Starting the program</a></li>
-<li><a href="#4-features-of-the-medibook">4 Features of the MediBook</a>
+<li><a href="#3-starting-medibook">3 Starting MediBook</a></li>
+<li><a href="#4-features-of-medibook">4 Features of MediBook</a>
 <ul class="sectlevel2">
 <li><a href="#4-1-viewing-help-code-help-code">4.1 Viewing help : <code>help</code></a></li>
-<li><a href="#4-2-adding-a-person-code-add-code">4.2 Adding a person: <code>add</code></a></li>
-<li><a href="#4-3-listing-all-persons-code-list-code">4.3 Listing all persons : <code>list</code></a></li>
+<li><a href="#4-2-listing-all-persons-code-list-code">4.2 Listing all persons : <code>list</code></a></li>
+<li><a href="#4-3-clearing-all-entries-code-clear-code">4.3 Clearing all entries : <code>clear</code></a></li>
 <li><a href="#4-4-finding-all-persons-containing-any-keyword-in-their-name-code-find-code">4.4 Finding all persons containing any keyword in their name: <code>find</code></a></li>
-<li><a href="#4-5-deleting-a-person-code-delete-code">4.5 Deleting a person : <code>delete</code></a></li>
-<li><a href="#4-6-view-non-private-details-of-a-person-code-view-code">4.6 View non-private details of a person : <code>view</code></a></li>
-<li><a href="#4-7-view-all-details-of-a-person-code-viewall-code">4.7 View all details of a person : <code>viewall</code></a></li>
-<li><a href="#4-8-undo-redo-code-undo-code-code-redo-code">4.8 Undo/Redo : <code>undo</code> , <code>redo</code></a></li>
-<li><a href="#4-9-selecting-a-person-to-edit-his-her-appointment-code-edit-appointment-code">4.9 Selecting a person to edit his/her appointment: <code>edit-appointment</code></a></li>
+<li><a href="#4-5-adding-a-person-code-add-code">4.5 Adding a person: <code>add</code></a></li>
+<li><a href="#4-6-deleting-a-person-code-delete-code">4.6 Deleting a person : <code>delete</code></a></li>
+<li><a href="#4-7-view-non-private-details-of-a-person-code-view-code">4.7 View non-private details of a person : <code>view</code></a></li>
+<li><a href="#4-8-view-all-details-of-a-person-code-viewall-code">4.8 View all details of a person : <code>viewall</code></a></li>
+<li><a href="#4-9-selecting-a-person-to-edit-appointment-code-edit-appointment-code">4.9 Selecting a person to edit appointment: <code>edit-appointment</code></a></li>
 <li><a href="#4-10-create-an-associate-between-a-doctor-and-a-patient-code-link-code">4.10 Create an associate between a doctor and a patient: <code>link</code></a></li>
-<li><a href="#4-11-listing-all-persons-associated-code-associatelist-code">4.11 Listing all persons associated: <code>associatelist</code></a></li>
-<li><a href="#4-12-clearing-all-entries-code-clear-code">4.12 Clearing all entries : <code>clear</code></a></li>
-<li><a href="#4-13-listing-all-executed-commands-code-history-code">4.13 Listing all executed commands : <code>history</code></a></li>
-<li><a href="#4-14-opening-medichat-code-chat-code-coming-soon-in-v1-4">4.14 Opening MediChat : <code>chat</code> (Coming soon in v1.4)</a></li>
-<li><a href="#4-15-exiting-the-program-code-exit-code">4.15 Exiting the program : <code>exit</code></a></li>
-<li><a href="#4-16-saving-the-data">4.16 Saving the data</a></li>
+<li><a href="#4-11-unlink">4.11 Unlink</a></li>
+<li><a href="#4-12-listing-all-persons-associated-code-associatelist-code">4.12 Listing all persons associated: <code>associatelist</code></a></li>
+<li><a href="#4-13-opening-medichat-code-chat-code-coming-soon-in-v1-4">4.13 Opening MediChat : <code>chat</code> (Coming soon in v1.4)</a></li>
+<li><a href="#4-14-change-password">4.14 Change Password</a></li>
+<li><a href="#4-15-undo-redo-code-undo-code-code-redo-code">4.15 Undo/Redo : <code>undo</code> , <code>redo</code></a></li>
+<li><a href="#4-16-redo">4.16 Redo</a></li>
+<li><a href="#4-17-listing-all-executed-commands-code-history-code">4.17 Listing all executed commands : <code>history</code></a></li>
+<li><a href="#4-18-exiting-the-program-code-exit-code">4.18 Exiting the program : <code>exit</code></a></li>
+<li><a href="#4-19-saving-the-data">4.19 Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#5-a-compact-summary">5 A Compact Summary</a></li>
@@ -31,7 +34,10 @@
 <h2 id="1-introduction"><a class="link" href="#1-introduction">1 Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The MediBook v1.3 allows healthcare professionals to keep track of patients’ details, arrange their schedule based on their patients’ appointments and communicate efficiently between colleagues.</p>
+<p>The MediBook v1.4 optimises and streamline healthcare administration for a better heathcare experience for all.
+This is done so as MediBook allows healthcare professionals to keep track of patients’ details, arrange their schedule
+based on their patients’ appointments and communicate efficiently between colleagues.
+All of this is secured by the log in which also limits the user access level accordingly.</p>
 </div>
 </div>
 </div>
@@ -39,15 +45,12 @@
 <h2 id="2-about"><a class="link" href="#2-about">2 About</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This user guide provides an overview for healthcare professionals on the usage of MediBook once MediBook is set up.</p>
-</div>
-<div class="paragraph">
-<p>However, setting up this MediBook requires basic familiarity with integrated developer environment (IDE) as there is no user-friendly installer. Please seek help from the technician staff or refer to the <a href="DeveloperGuide.html#setting-up">Setting up</a> section to learn how to set up the project.</p>
+<p>This user guide provides an overview for healthcare professionals on the usage of MediBook.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="3-starting-the-program"><a class="link" href="#3-starting-the-program">3 Starting the program</a></h2>
+<h2 id="3-starting-medibook"><a class="link" href="#3-starting-medibook">3 Starting MediBook</a></h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -91,7 +94,7 @@ Program will exit upon login failure, i.e. 3 incorrect username/password tries</
 </div>
 </div>
 <div class="sect1">
-<h2 id="4-features-of-the-medibook"><a class="link" href="#4-features-of-the-medibook">4 Features of the MediBook</a></h2>
+<h2 id="4-features-of-medibook"><a class="link" href="#4-features-of-medibook">4 Features of MediBook</a></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="4-1-viewing-help-code-help-code"><a class="link" href="#4-1-viewing-help-code-help-code">4.1 Viewing help : <code>help</code></a></h3>
@@ -114,45 +117,17 @@ Program will exit upon login failure, i.e. 3 incorrect username/password tries</
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-2-adding-a-person-code-add-code"><a class="link" href="#4-2-adding-a-person-code-add-code">4.2 Adding a person: <code>add</code></a></h3>
-<div class="paragraph">
-<p>Adds a person to the MediBook.<br>
-Format: <code>add NAME [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [p]s/TITLE [d/DD-MM-YYYY]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Words in <code>UPPER_CASE</code> are the parameters, items in <code>SQUARE_BRACKETS</code> are optional,
-items with <code>&#8230;&#8203;</code> after them can have multiple instances. Order of parameters are fixed.</p>
-</div>
-<div class="paragraph">
-<p>Put a <code>p</code> before the phone / email / address / title prefixes to mark it as <code>private</code>. <code>private</code> details can only
-be seen using the <code>viewall</code> command.</p>
-</div>
-<div class="paragraph">
-<p>Persons can have any number of schedule dates and tags (including 0)</p>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01</code> s/Doctor</p>
-</li>
-<li>
-<p><code>add Betsy Crowe pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison s/Patient d/04-10-2018 d/09-11-2018 t/criminal t/friend</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="4-3-listing-all-persons-code-list-code"><a class="link" href="#4-3-listing-all-persons-code-list-code">4.3 Listing all persons : <code>list</code></a></h3>
+<h3 id="4-2-listing-all-persons-code-list-code"><a class="link" href="#4-2-listing-all-persons-code-list-code">4.2 Listing all persons : <code>list</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all persons in the MediBook.<br>
 Format: <code>list</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-3-clearing-all-entries-code-clear-code"><a class="link" href="#4-3-clearing-all-entries-code-clear-code">4.3 Clearing all entries : <code>clear</code></a></h3>
+<div class="paragraph">
+<p>Clears all entries from the MediBook.<br>
+Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -193,9 +168,44 @@ Returns Any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-5-deleting-a-person-code-delete-code"><a class="link" href="#4-5-deleting-a-person-code-delete-code">4.5 Deleting a person : <code>delete</code></a></h3>
+<h3 id="4-5-adding-a-person-code-add-code"><a class="link" href="#4-5-adding-a-person-code-add-code">4.5 Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the MediBook. Reversible within the session using the undo command (section 4.6).<br>
+<p>Adds a person to the MediBook.<br>
+Format: <code>add NAME n/NRIC [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [p]s/TITLE [d/DD-MM-YYYY]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Words in <code>UPPER_CASE</code> are the parameters, items in <code>SQUARE_BRACKETS</code> are optional,
+items with <code>&#8230;&#8203;</code> after them can have multiple instances. Order of parameters are fixed.</p>
+</div>
+<div class="paragraph">
+<p>Put a <code>p</code> before the phone / email / address / title prefixes to mark it as <code>private</code>. <code>private</code> details can only
+be seen using the <code>viewall</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Persons can have any number of schedule dates and tags (including 0)</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add John Doe n/S1239875U p/98765432 e/johnd@gmail.com a/311, Clementi Ave 2, #02-25 s/Patient d/01-01-2019 t/hasDiabetesType2 t/onInsulinTherapy</code></p>
+</li>
+<li>
+<p><code>add Betsy Crowe n/S7654321T pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison s/Doctor d/04-10-2018 d/09-11-2018</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-6-deleting-a-person-code-delete-code"><a class="link" href="#4-6-deleting-a-person-code-delete-code">4.6 Deleting a person : <code>delete</code></a></h3>
+<div class="paragraph">
+<p>Deletes the specified person from the MediBook.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -204,22 +214,11 @@ Format: <code>delete INDEX</code></p>
 <p>Deletes the person at the specified <code>INDEX</code>.
 The index refers to the index number shown in the most recent listing.</p>
 </div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>Delete is based on the index of the latest listing. Hence, there is a need to list or find at least once
-in the session for delete can have an index reference to delete.</p>
+<p>Hence, there is a need to <code>list</code> or <code>find</code> at least once
+in the session for <code>delete</code> can have an index reference to delete.</p>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -240,7 +239,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-6-view-non-private-details-of-a-person-code-view-code"><a class="link" href="#4-6-view-non-private-details-of-a-person-code-view-code">4.6 View non-private details of a person : <code>view</code></a></h3>
+<h3 id="4-7-view-non-private-details-of-a-person-code-view-code"><a class="link" href="#4-7-view-non-private-details-of-a-person-code-view-code">4.7 View non-private details of a person : <code>view</code></a></h3>
 <div class="paragraph">
 <p>Displays the non-private details of the specified person.<br>
 Format: <code>view INDEX</code></p>
@@ -251,21 +250,11 @@ Format: <code>view INDEX</code></p>
 <p>Views the person at the specified <code>INDEX</code>.
 The index refers to the index number shown in the most recent listing.</p>
 </div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>Similar to delete, it requires list or find command to be called at least once in the session for an index reference to view.</p>
+<p>Similar to <code>delete</code>, it requires <code>list</code> or <code>find</code> command to be called at least
+ once in the session for an index reference to <code>view</code>.</p>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -286,7 +275,7 @@ Views the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-7-view-all-details-of-a-person-code-viewall-code"><a class="link" href="#4-7-view-all-details-of-a-person-code-viewall-code">4.7 View all details of a person : <code>viewall</code></a></h3>
+<h3 id="4-8-view-all-details-of-a-person-code-viewall-code"><a class="link" href="#4-8-view-all-details-of-a-person-code-viewall-code">4.8 View all details of a person : <code>viewall</code></a></h3>
 <div class="paragraph">
 <p>Displays all details (including private details) of the specified person.<br>
 Format: <code>viewall INDEX</code></p>
@@ -297,21 +286,11 @@ Format: <code>viewall INDEX</code></p>
 <p>Views all details of the person at the specified <code>INDEX</code>.
 The index refers to the index number shown in the most recent listing.</p>
 </div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
 <div class="paragraph">
-<p>Similar to view and delete, it requires list or find command to be called at least once in the session for an index reference to viewall.</p>
+<p>Similar to <code>view</code> and <code>delete</code>, it requires <code>list</code> or <code>find</code> command to be
+ called at least once in the session for an index reference to <code>viewall</code>.</p>
 </div>
-</td>
-</tr>
-</table>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -332,7 +311,241 @@ Views all details of the 1st person in the results of the <code>find</code> comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-8-undo-redo-code-undo-code-code-redo-code"><a class="link" href="#4-8-undo-redo-code-undo-code-code-redo-code">4.8 Undo/Redo : <code>undo</code> , <code>redo</code></a></h3>
+<h3 id="4-9-selecting-a-person-to-edit-appointment-code-edit-appointment-code"><a class="link" href="#4-9-selecting-a-person-to-edit-appointment-code-edit-appointment-code">4.9 Selecting a person to edit appointment: <code>edit-appointment</code></a></h3>
+<div class="paragraph">
+<p>Selects the person to edit appointment.<br>
+Format: 'edit-appointment INDEX'</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Access to the appointment of the person at the specified <code>INDEX</code>.
+The index refers to the index number shown in the most recent listing.</p>
+</div>
+<div class="paragraph">
+<p>Similar to <code>viewall</code>, <code>view</code> and <code>delete</code>, it requires <code>list</code> or <code>find</code> command to be called
+ at least once in the session for an index reference to <code>edit-appointment</code>.</p>
+</div>
+<div class="paragraph">
+<p>Once access, edits can be done repeated to the selected person&#8217;s appoinments until user exits the
+ edit-appointment session as detailed in 4.9.5.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:
+* <code>list</code><br>
+<code>edit-appointment 2</code><br>
+Access to the 2nd person in the MediBook.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>find Betsy</code><br>
+<code>edit-appointment 1</code><br>
+Access to the 1st person in the results of the <code>find</code> command.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="4-9-1-viewing-help-code-help-code"><a class="link" href="#4-9-1-viewing-help-code-help-code">4.9.1 Viewing help : <code>help</code></a></h4>
+<div class="paragraph">
+<p>Shows the help screen for the edit-appointment session.<br>
+Format: <code>help</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Help is also shown if you enter an incorrect command e.g. <code>abcd</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="4-9-2-listing-the-appointment-of-the-selected-person-code-list-code"><a class="link" href="#4-9-2-listing-the-appointment-of-the-selected-person-code-list-code">4.9.2 Listing the appointment of the selected person: <code>list</code></a></h4>
+<div class="paragraph">
+<p>Shows a list of all appointment of the selected person in the MediBook.<br>
+Format: <code>list</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="4-9-3-adding-appointment-to-the-selected-person-code-add-code"><a class="link" href="#4-9-3-adding-appointment-to-the-selected-person-code-add-code">4.9.3 Adding appointment to the selected person: <code>add</code></a></h4>
+<div class="paragraph">
+<p>Adds appointments to the selected person in MediBook.<br>
+Format: <code>add DD-MM-YYYY&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><code>&#8230;&#8203;</code> indicated that therevcan have multiple instances.</p>
+</div>
+<div class="paragraph">
+<p>Appointments that are already reorded (and duplicates) would not be added.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add 01-01-2019</code></p>
+</li>
+<li>
+<p><code>add 01-01-2019 02-01-2019 03-01-2019</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="4-9-4-deleting-appointment-of-the-selected-person-code-delete-code"><a class="link" href="#4-9-4-deleting-appointment-of-the-selected-person-code-delete-code">4.9.4 Deleting appointment of the selected person: <code>delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes appointments from the selected person in MediBook.<br>
+Format: <code>delete DD-MM-YYY&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><code>&#8230;&#8203;</code> indicated that therevcan have multiple instances.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete 01-01-2019</code></p>
+</li>
+<li>
+<p><code>delete 01-01-2019 02-01-2019 03-01-2019</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="4-9-5-exiting-the-edit-appointment-session-code-done-code"><a class="link" href="#4-9-5-exiting-the-edit-appointment-session-code-done-code">4.9.5 Exiting the edit-appointment session: <code>done</code></a></h4>
+<div class="paragraph">
+<p>Exits the edit-appointment session.<br>
+Format: <code>done</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-10-create-an-associate-between-a-doctor-and-a-patient-code-link-code"><a class="link" href="#4-10-create-an-associate-between-a-doctor-and-a-patient-code-link-code">4.10 Create an associate between a doctor and a patient: <code>link</code></a></h3>
+<div class="paragraph">
+<p>Create an association between person specified at INDEX1 and the person specified at INDEX2 <br>
+Format: <code>link INDEX1 INDEX2</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Links the person at the specified <code>INDEX1</code> with the person at the specified <code>INDEX2</code>.
+One of them must be a doctor and the other one must be a patient
+The index refers to the index number shown in the most recent listing.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Similar to viewall, view and delete, it requires list or find command to be called at least once in the session for an index reference to edit-appointment.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>link 1 2</code><br>
+Associate the 1st person in the MediBook with 2nd person in the MediBook.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-11-unlink"><a class="link" href="#4-11-unlink">4.11 Unlink</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="4-12-listing-all-persons-associated-code-associatelist-code"><a class="link" href="#4-12-listing-all-persons-associated-code-associatelist-code">4.12 Listing all persons associated: <code>associatelist</code></a></h3>
+<div class="paragraph">
+<p>Shows a list of all persons associated with the specified person <br>
+Format: <code>associatelist INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Show the people associate with the person at the specified <code>INDEX</code>.
+The index refers to the index number shown in the most recent listing.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Similar to viewall, view and delete, it requires list or find command to be called at least once in the session for an index reference to edit-appointment.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>associatelist 2</code><br>
+Views all persons associated with the 2nd person in the MediBook.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-13-opening-medichat-code-chat-code-coming-soon-in-v1-4"><a class="link" href="#4-13-opening-medichat-code-chat-code-coming-soon-in-v1-4">4.13 Opening MediChat : <code>chat</code> (Coming soon in v1.4)</a></h3>
+<div class="paragraph">
+<p>Opens up MediChat, an instant messaging client to instantly contact your colleagues.</p>
+</div>
+<div class="paragraph">
+<p>Note: In V1.3, the chat server has to be started first. Once MediChat window opens, type "localhost" when the IP address is requested. Next, enter a unique username.
+To simulate chatting, multiple MediChat windows have to be opened.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>chat</code> <code>localhost</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-14-change-password"><a class="link" href="#4-14-change-password">4.14 Change Password</a></h3>
+
+</div>
+<div class="sect2">
+<h3 id="4-15-undo-redo-code-undo-code-code-redo-code"><a class="link" href="#4-15-undo-redo-code-undo-code-code-redo-code">4.15 Undo/Redo : <code>undo</code> , <code>redo</code></a></h3>
 <div class="paragraph">
 <p><code>Undo</code> reverts the last command made. <code>Redo</code> reverts specifically the last undo command made when applicable.<br>
 Format: <code>undo</code><br>
@@ -403,188 +616,11 @@ Redo the deletion of 1st person in the results of the <code>find</code> command.
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-9-selecting-a-person-to-edit-his-her-appointment-code-edit-appointment-code"><a class="link" href="#4-9-selecting-a-person-to-edit-his-her-appointment-code-edit-appointment-code">4.9 Selecting a person to edit his/her appointment: <code>edit-appointment</code></a></h3>
-<div class="paragraph">
-<p>Select the person to edit appointment.<br>
-Format: 'edit-appointment INDEX'</p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Access to the appointment of the person at the specified <code>INDEX</code>.
-The index refers to the index number shown in the most recent listing.<br></p>
-</div>
-<div class="paragraph">
-<p>Once access, edits to the selected person&#8217;s appoinments can be done repeated until user exits the
-edit-appointment session as detailed in 4.9.5.</p>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Similar to viewall, view and delete, it requires list or find command to be called at least once in the session for an index reference to edit-appointment.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:
-* <code>list</code><br>
-<code>edit-appointment 2</code><br>
-Access to the 2nd person in the MediBook.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>find Betsy</code><br>
-<code>edit-appointment 1</code><br>
-Access to the 1st person in the results of the <code>find</code> command.</p>
-</li>
-</ul>
-</div>
-<div class="sect3">
-<h4 id="4-9-1-viewing-help-code-help-code"><a class="link" href="#4-9-1-viewing-help-code-help-code">4.9.1 Viewing help : <code>help</code></a></h4>
-<div class="paragraph">
-<p>Shows the help screen for the edit-appointment session
-Format: <code>help</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Help is also shown if you enter an incorrect command e.g. <code>abcd</code></p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-</div>
-<div class="sect3">
-<h4 id="4-9-2-listing-the-appointment-of-the-selected-person-code-list-code-more-coming-soon"><a class="link" href="#4-9-2-listing-the-appointment-of-the-selected-person-code-list-code-more-coming-soon">4.9.2 Listing the appointment of the selected person: <code>list</code> (more coming soon)</a></h4>
-<div class="paragraph">
-<p>Shows a list of all appointment of the selected person in the MediBook.<br>
-Format: <code>list</code></p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="4-9-3-adding-appointment-to-the-selected-person-coming-soon"><a class="link" href="#4-9-3-adding-appointment-to-the-selected-person-coming-soon">4.9.3 Adding appointment to the selected person: (Coming soon)</a></h4>
+<h3 id="4-16-redo"><a class="link" href="#4-16-redo">4.16 Redo</a></h3>
 
 </div>
-<div class="sect3">
-<h4 id="4-9-4-deleting-appointment-of-the-selected-person-coming-soon"><a class="link" href="#4-9-4-deleting-appointment-of-the-selected-person-coming-soon">4.9.4 Deleting appointment of the selected person: (Coming soon)</a></h4>
-
-</div>
-<div class="sect3">
-<h4 id="4-9-5-exiting-the-edit-appointment-session-code-done-code"><a class="link" href="#4-9-5-exiting-the-edit-appointment-session-code-done-code">4.9.5 Exiting the edit-appointment session: <code>done</code></a></h4>
-<div class="paragraph">
-<p>Exits the edit-appointment session.<br>
-Format: <code>done</code></p>
-</div>
-</div>
-</div>
 <div class="sect2">
-<h3 id="4-10-create-an-associate-between-a-doctor-and-a-patient-code-link-code"><a class="link" href="#4-10-create-an-associate-between-a-doctor-and-a-patient-code-link-code">4.10 Create an associate between a doctor and a patient: <code>link</code></a></h3>
-<div class="paragraph">
-<p>Create an association between person specified at INDEX1 and the person specified at INDEX2 <br>
-Format: <code>link INDEX1 INDEX2</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Links the person at the specified <code>INDEX1</code> with the person at the specified <code>INDEX2</code>.
-One of them must be a doctor and the other one must be a patient
-The index refers to the index number shown in the most recent listing.</p>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Similar to viewall, view and delete, it requires list or find command to be called at least once in the session for an index reference to edit-appointment.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>link 1 2</code><br>
-Associate the 1st person in the MediBook with 2nd person in the MediBook.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="4-11-listing-all-persons-associated-code-associatelist-code"><a class="link" href="#4-11-listing-all-persons-associated-code-associatelist-code">4.11 Listing all persons associated: <code>associatelist</code></a></h3>
-<div class="paragraph">
-<p>Shows a list of all persons associated with the specified person <br>
-Format: <code>associatelist INDEX</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p>Show the people associate with the person at the specified <code>INDEX</code>.
-The index refers to the index number shown in the most recent listing.</p>
-</div>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Similar to viewall, view and delete, it requires list or find command to be called at least once in the session for an index reference to edit-appointment.</p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>associatelist 2</code><br>
-Views all persons associated with the 2nd person in the MediBook.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="4-12-clearing-all-entries-code-clear-code"><a class="link" href="#4-12-clearing-all-entries-code-clear-code">4.12 Clearing all entries : <code>clear</code></a></h3>
-<div class="paragraph">
-<p>Clears all entries from the MediBook.<br>
-Format: <code>clear</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="4-13-listing-all-executed-commands-code-history-code"><a class="link" href="#4-13-listing-all-executed-commands-code-history-code">4.13 Listing all executed commands : <code>history</code></a></h3>
+<h3 id="4-17-listing-all-executed-commands-code-history-code"><a class="link" href="#4-17-listing-all-executed-commands-code-history-code">4.17 Listing all executed commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all executed commands in the current session.<br>
 Format: <code>history</code></p>
@@ -606,32 +642,21 @@ If you encounter this, please feel free to let us know. Thank you!</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-14-opening-medichat-code-chat-code-coming-soon-in-v1-4"><a class="link" href="#4-14-opening-medichat-code-chat-code-coming-soon-in-v1-4">4.14 Opening MediChat : <code>chat</code> (Coming soon in v1.4)</a></h3>
-<div class="paragraph">
-<p>Opens up MediChat, an instant messaging client to instantly contact your colleagues.</p>
-</div>
-<div class="paragraph">
-<p>Note: In V1.3, the chat server has to be started first. Once MediChat window opens, type "localhost" when the IP address is requested. Next, enter a unique username.
-To simulate chatting, multiple MediChat windows have to be opened.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>chat</code> <code>localhost</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="4-15-exiting-the-program-code-exit-code"><a class="link" href="#4-15-exiting-the-program-code-exit-code">4.15 Exiting the program : <code>exit</code></a></h3>
+<h3 id="4-18-exiting-the-program-code-exit-code"><a class="link" href="#4-18-exiting-the-program-code-exit-code">4.18 Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-16-saving-the-data"><a class="link" href="#4-16-saving-the-data">4.16 Saving the data</a></h3>
+<h3 id="4-19-saving-the-data"><a class="link" href="#4-19-saving-the-data">4.19 Saving the data</a></h3>
 <div class="paragraph">
-<p>MediBook data are saved in the hard disk automatically after any command that changes the data. As such, there is no need to save the data manually. These data are saved in a file called addressbook.txt in the project root folder.</p>
+<p>MediBook data are saved in the hard disk automatically after any command that changes the data. As such, there is no
+ need to save the data manually. These data are saved in a file called addressbook.txt in the project root folder.</p>
 </div>
 <div class="paragraph">
-<p>However, the history of commands made are only available within the browsing session and would no longer be available after the exit or the program is closed. Undo and Redo commands are also only applicable within the browsing session.</p>
+<p>However, the history of commands made are only available within the browsing session and would no longer be available
+ after the exit or the program is closed. Undo and Redo commands are also only applicable within the browsing session.</p>
 </div>
 </div>
 </div>
@@ -645,13 +670,16 @@ Format: <code>exit</code></p>
 <p><code>help</code> : Shows the help screen</p>
 </li>
 <li>
-<p><code>add</code> : Adds a person into the MediBook</p>
-</li>
-<li>
 <p><code>list</code> : Shows a list of all persons in the Heath Booklet.</p>
 </li>
 <li>
+<p><code>clear</code> : Clear all entries in the MediBook</p>
+</li>
+<li>
 <p><code>find</code> : Finds persons whose names contain any of the given keywords</p>
+</li>
+<li>
+<p><code>add</code> : Adds a person into the MediBook</p>
 </li>
 <li>
 <p><code>delete</code> : Delete a person in the MediBook</p>
@@ -663,20 +691,20 @@ Format: <code>exit</code></p>
 <p><code>viewall</code> : View all information of a person in the MediBook</p>
 </li>
 <li>
-<p><code>undo</code> : Undo a change made previously</p>
-</li>
-<li>
-<p><code>redo</code> : Redo a change that was undone</p>
-</li>
-<li>
-<p><code>edit-appointment</code> : Selects a person to edit his/her appointment</p>
+<p><code>edit-appointment</code> : Selects a person to edit his/her appointment dates</p>
 <div class="ulist">
 <ul>
 <li>
 <p><code>help</code> : Shows the help screen for the edit-appointment session</p>
 </li>
 <li>
-<p><code>list</code> : Shows a list of all appointments for the selected persons (Coming soon)</p>
+<p><code>list</code> : Shows the list of all appointments for the selected persons</p>
+</li>
+<li>
+<p><code>add</code> : Add appointment dates</p>
+</li>
+<li>
+<p><code>delete</code> : Delete the appointment dates</p>
 </li>
 <li>
 <p><code>done</code> : Exit the edit-appointment session</p>
@@ -685,19 +713,28 @@ Format: <code>exit</code></p>
 </div>
 </li>
 <li>
-<p><code>clear</code> : Clear all entries in the MediBook</p>
-</li>
-<li>
-<p><code>history</code> : Shows a list of all executed commands</p>
-</li>
-<li>
 <p><code>link</code> : Create an associate between a doctor and a patient</p>
+</li>
+<li>
+<p><code>unlink</code></p>
 </li>
 <li>
 <p><code>associatelist</code> : List all persons associated</p>
 </li>
 <li>
 <p><code>chat</code> : Opens MediChat</p>
+</li>
+<li>
+<p><code>change password</code></p>
+</li>
+<li>
+<p><code>undo</code> : Undo a change made previously</p>
+</li>
+<li>
+<p><code>redo</code> : Redo a change that was undone</p>
+</li>
+<li>
+<p><code>history</code> : Shows a list of all executed commands</p>
 </li>
 <li>
 <p><code>exit</code> : Exits the program</p>
@@ -750,4 +787,4 @@ Format: <code>exit</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-10 15:58:01 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 07:14:52 UTC</div></div></div></body></html>
