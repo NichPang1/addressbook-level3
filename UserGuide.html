@@ -8,7 +8,8 @@
 <ul class="sectlevel2">
 <li><a href="#4-1-viewing-help-code-help-code">4.1 Viewing help : <code>help</code></a></li>
 <li><a href="#4-2-listing-all-persons-code-list-code">4.2 Listing all persons : <code>list</code></a></li>
-<li><a href="#4-3-sorting-the-list-code-sort-code">4.3 Sorting the list : <code>sort</code></a></li>
+<li><a href="#4-3-sorting-the-list-code-sortname-code">4.3 Sorting the list : <code>sortname</code></a></li>
+<li><a href="#4-3-1-sorting-the-list-according-to-title-code-sorttitle-code">4.3.1 Sorting the list according to title : <code>sorttitle</code></a></li>
 <li><a href="#4-4-clearing-all-entries-code-clear-code">4.4 Clearing all entries : <code>clear</code></a></li>
 <li><a href="#4-5-finding-all-persons-containing-any-keyword-in-their-name-code-find-code">4.5 Finding all persons containing any keyword in their name: <code>find</code></a></li>
 <li><a href="#4-6-adding-a-person-code-add-code">4.6 Adding a person: <code>add</code></a></li>
@@ -34,10 +35,10 @@
 <h2 id="1-introduction"><a class="link" href="#1-introduction">1 Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The MediBook v1.4 optimises and streamline healthcare administration for a better heathcare experience for all.
-This is done so as MediBook allows healthcare professionals to keep track of patients’ details, arrange their schedule
-based on their patients’ appointments and communicate efficiently between colleagues.
-All of this is secured by the log in which also limits the user access level accordingly.</p>
+<p>MediBook v1.4 optimises and streamlines healthcare administration for a better heathcare experience for all.
+MediBook helps healthcare professionals to store and organise patients’ details as well as arrange their schedule
+based on their patients’ appointments.
+All of this is secured by the login which also limits the user access level accordingly.</p>
 </div>
 </div>
 </div>
@@ -55,16 +56,10 @@ All of this is secured by the log in which also limits the user access level acc
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Find the project pane (usually located at the left side)</p>
+<p>Download the latest version of MediBook from our team&#8217;s GitHub repository <a href="https://github.com/CS2113-AY1819S1-F10-2/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Open up <code>src/seedu.addressbook</code> folder</p>
-</li>
-<li>
-<p>Right click on <code>Main</code></p>
-</li>
-<li>
-<p>Click <code>Run Main.main()</code></p>
+<p>Double click the jar file to start it.</p>
 </li>
 <li>
 <p>The login GUI should appear in a few seconds</p>
@@ -82,7 +77,7 @@ All of this is secured by the log in which also limits the user access level acc
 Program will exit upon login failure, i.e. 3 incorrect username/password tries</p>
 </li>
 <li>
-<p>Upon successful login, main GUI <code>Welcome to MediBook</code> will appear.</p>
+<p>Upon successful login, main GUI <code>Welcome to your MediBook!</code> will appear.</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/mainUI.png" alt="mainUI">
@@ -119,22 +114,31 @@ Program will exit upon login failure, i.e. 3 incorrect username/password tries</
 <div class="sect2">
 <h3 id="4-2-listing-all-persons-code-list-code"><a class="link" href="#4-2-listing-all-persons-code-list-code">4.2 Listing all persons : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the MediBook.<br>
+<p>Shows a list of all persons in MediBook.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-3-sorting-the-list-code-sort-code"><a class="link" href="#4-3-sorting-the-list-code-sort-code">4.3 Sorting the list : <code>sort</code></a></h3>
+<h3 id="4-3-sorting-the-list-code-sortname-code"><a class="link" href="#4-3-sorting-the-list-code-sortname-code">4.3 Sorting the list : <code>sortname</code></a></h3>
 <div class="paragraph">
 <p>Sorts the list of entries in MediBook according to alphabetical order.
-After the list is sorted, future commands will use the index of the sorted list.
-Format: <code>sort</code></p>
+After the list is sorted, future commands (e.g. <code>delete</code> ) will use the index of the sorted list.
+Format: <code>sortname</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-3-1-sorting-the-list-according-to-title-code-sorttitle-code"><a class="link" href="#4-3-1-sorting-the-list-according-to-title-code-sorttitle-code">4.3.1 Sorting the list according to title : <code>sorttitle</code></a></h3>
+<div class="paragraph">
+<p>Sorts the entries in MediBook according to title.
+Entries within the titles are sorted according to alphabetical order.
+After the list is sorted, future commands (e.g. <code>delete</code> ) will use the index of the sorted list.
+Format: <code>sorttitle</code></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="4-4-clearing-all-entries-code-clear-code"><a class="link" href="#4-4-clearing-all-entries-code-clear-code">4.4 Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the MediBook.<br>
+<p>Clears all entries in MediBook.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
@@ -178,7 +182,7 @@ Returns Any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <div class="sect2">
 <h3 id="4-6-adding-a-person-code-add-code"><a class="link" href="#4-6-adding-a-person-code-add-code">4.6 Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the MediBook.<br>
+<p>Adds a person to MediBook.<br>
 Format: <code>add NAME n/NRIC [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [p]s/TITLE [d/DD-MM-YYYY-HH:MM]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock note">
@@ -233,7 +237,7 @@ be seen using the <code>viewall</code> command.</p>
 <div class="sect2">
 <h3 id="4-7-deleting-a-person-code-delete-code"><a class="link" href="#4-7-deleting-a-person-code-delete-code">4.7 Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the MediBook.<br>
+<p>Deletes the specified person from MediBook.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -256,7 +260,7 @@ in the session for <code>delete</code> can have an index reference to delete.</p
 <li>
 <p><code>list</code><br>
 <code>delete 2</code><br>
-Deletes the 2nd person in the MediBook.</p>
+Deletes the 2nd person in MediBook.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -292,7 +296,7 @@ The index refers to the index number shown in the most recent listing.</p>
 <li>
 <p><code>list</code><br>
 <code>view 2</code><br>
-Views the 2nd person in the MediBook.</p>
+Views the 2nd person in MediBook.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -328,7 +332,7 @@ The index refers to the index number shown in the most recent listing.</p>
 <li>
 <p><code>list</code><br>
 <code>viewall 2</code><br>
-Views all details of the 2nd person in the MediBook.</p>
+Views all details of the 2nd person in MediBook.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -364,7 +368,7 @@ The index refers to the index number shown in the most recent listing.</p>
 <p>Examples:
 * <code>list</code><br>
 <code>edit-appointment 2</code><br>
-Access to the 2nd person in the MediBook.</p>
+Access to the 2nd person in MediBook.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -399,7 +403,7 @@ Format: <code>help</code></p>
 <div class="sect3">
 <h4 id="4-10-2-listing-the-appointment-of-the-selected-person-code-list-code"><a class="link" href="#4-10-2-listing-the-appointment-of-the-selected-person-code-list-code">4.10.2 Listing the appointment of the selected person: <code>list</code></a></h4>
 <div class="paragraph">
-<p>Shows a list of all appointment of the selected person in the MediBook.<br>
+<p>Shows a list of all appointment of the selected person in MediBook.<br>
 Format: <code>list</code></p>
 </div>
 </div>
@@ -505,7 +509,7 @@ The index refers to the index number shown in the most recent listing.</p>
 <li>
 <p><code>list</code><br>
 <code>link 1 2</code><br>
-Associate the 1st person in the MediBook with 2nd person in the MediBook.</p>
+Associate the 1st person with the 2nd person in MediBook.</p>
 </li>
 </ul>
 </div>
@@ -550,7 +554,7 @@ The index refers to the index number shown in the most recent listing.</p>
 <li>
 <p><code>list</code><br>
 <code>associatelist 2</code><br>
-Views all persons associated with the 2nd person in the MediBook.</p>
+Views all persons associated with the 2nd person in MediBook.</p>
 </li>
 </ul>
 </div>
@@ -598,11 +602,11 @@ However, once a change is made after an undo, a redo to previous changes that ar
 <li>
 <p><code>list</code><br>
 <code>delete 2</code><br>
-Deletes the 2nd person in the MediBook.<br>
+Deletes the 2nd person in MediBook.<br>
 <code>undo</code><br>
 Undo the deletion of the deleted person.<br>
 <code>redo</code><br>
-Redo the deletion of 2nd person in the MediBook.</p>
+Redo the deletion of 2nd person in MediBook.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
@@ -648,7 +652,7 @@ Format: <code>history</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>As some commands are incomplete, they might not be be reflected in <code>history</code> eventhough they are executed.
+<p>As some commands are incomplete, they might not be be reflected in <code>history</code> even though they are executed.
 If you encounter this, please feel free to let us know. Thank you!</p>
 </div>
 </td>
@@ -666,12 +670,12 @@ Format: <code>exit</code></p>
 <div class="sect2">
 <h3 id="4-19-saving-the-data"><a class="link" href="#4-19-saving-the-data">4.19 Saving the data</a></h3>
 <div class="paragraph">
-<p>MediBook data are saved in the hard disk automatically after any command that changes the data. As such, there is no
- need to save the data manually. These data are saved in a file called addressbook.txt in the project root folder.</p>
+<p>MediBook data is saved in the hard disk automatically after any command that changes the data. As such, there is no
+ need to save the data manually. Data is saved in a file called addressbook.txt in the project root folder.</p>
 </div>
 <div class="paragraph">
 <p>However, the history of commands made are only available within the browsing session and would no longer be available
- after the exit or the program is closed. Undo and Redo commands are also only applicable within the browsing session.</p>
+ after typing the exit command or the program is closed. Undo and Redo commands are also only applicable within the browsing session.</p>
 </div>
 </div>
 </div>
@@ -685,25 +689,31 @@ Format: <code>exit</code></p>
 <p><code>help</code> : Shows the help screen</p>
 </li>
 <li>
-<p><code>list</code> : Shows a list of all persons in the Heath Booklet.</p>
+<p><code>list</code> : Shows a list of all persons in MediBook.</p>
 </li>
 <li>
-<p><code>clear</code> : Clear all entries in the MediBook</p>
+<p><code>sortname</code> : Sorts according to name and lists all.</p>
+</li>
+<li>
+<p><code>sorttitle</code> : Sorts according to title and lists all.</p>
+</li>
+<li>
+<p><code>clear</code> : Clear all entries in MediBook</p>
 </li>
 <li>
 <p><code>find</code> : Finds persons whose names contain any of the given keywords</p>
 </li>
 <li>
-<p><code>add</code> : Adds a person into the MediBook</p>
+<p><code>add</code> : Adds a person into MediBook</p>
 </li>
 <li>
-<p><code>delete</code> : Delete a person in the MediBook</p>
+<p><code>delete</code> : Delete a person in MediBook</p>
 </li>
 <li>
-<p><code>view</code> : View the information of a person in the MediBook</p>
+<p><code>view</code> : View the information of a person in MediBook</p>
 </li>
 <li>
-<p><code>viewall</code> : View all information of a person in the MediBook</p>
+<p><code>viewall</code> : View all information of a person in MediBook</p>
 </li>
 <li>
 <p><code>edit-appointment</code> : Selects a person to edit his/her appointment dates</p>
@@ -735,9 +745,6 @@ Format: <code>exit</code></p>
 </li>
 <li>
 <p><code>associatelist</code> : List all persons associated</p>
-</li>
-<li>
-<p><code>chat</code> : Opens MediChat</p>
 </li>
 <li>
 <p><code>change password</code></p>
@@ -802,4 +809,4 @@ Format: <code>exit</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 03:05:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:47:38 UTC</div></div></div></body></html>
