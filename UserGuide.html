@@ -8,17 +8,17 @@
 <ul class="sectlevel2">
 <li><a href="#4-1-viewing-help-code-help-code">4.1 Viewing help : <code>help</code></a></li>
 <li><a href="#4-2-listing-all-persons-code-list-code">4.2 Listing all persons : <code>list</code></a></li>
-<li><a href="#4-3-clearing-all-entries-code-clear-code">4.3 Clearing all entries : <code>clear</code></a></li>
-<li><a href="#4-4-finding-all-persons-containing-any-keyword-in-their-name-code-find-code">4.4 Finding all persons containing any keyword in their name: <code>find</code></a></li>
-<li><a href="#4-5-adding-a-person-code-add-code">4.5 Adding a person: <code>add</code></a></li>
-<li><a href="#4-6-deleting-a-person-code-delete-code">4.6 Deleting a person : <code>delete</code></a></li>
-<li><a href="#4-7-view-non-private-details-of-a-person-code-view-code">4.7 View non-private details of a person : <code>view</code></a></li>
-<li><a href="#4-8-view-all-details-of-a-person-code-viewall-code">4.8 View all details of a person : <code>viewall</code></a></li>
-<li><a href="#4-9-selecting-a-person-to-edit-appointment-code-edit-appointment-code">4.9 Selecting a person to edit appointment: <code>edit-appointment</code></a></li>
-<li><a href="#4-10-create-an-associate-between-a-doctor-and-a-patient-code-link-code">4.10 Create an associate between a doctor and a patient: <code>link</code></a></li>
-<li><a href="#4-11-unlink">4.11 Unlink</a></li>
-<li><a href="#4-12-listing-all-persons-associated-code-associatelist-code">4.12 Listing all persons associated: <code>associatelist</code></a></li>
-<li><a href="#4-13-opening-medichat-code-chat-code-coming-soon-in-v1-4">4.13 Opening MediChat : <code>chat</code> (Coming soon in v1.4)</a></li>
+<li><a href="#4-3-sorting-the-list-code-sort-code">4.3 Sorting the list : <code>sort</code></a></li>
+<li><a href="#4-4-clearing-all-entries-code-clear-code">4.4 Clearing all entries : <code>clear</code></a></li>
+<li><a href="#4-5-finding-all-persons-containing-any-keyword-in-their-name-code-find-code">4.5 Finding all persons containing any keyword in their name: <code>find</code></a></li>
+<li><a href="#4-6-adding-a-person-code-add-code">4.6 Adding a person: <code>add</code></a></li>
+<li><a href="#4-7-deleting-a-person-code-delete-code">4.7 Deleting a person : <code>delete</code></a></li>
+<li><a href="#4-8-view-non-private-details-of-a-person-code-view-code">4.8 View non-private details of a person : <code>view</code></a></li>
+<li><a href="#4-9-view-all-details-of-a-person-code-viewall-code">4.9 View all details of a person : <code>viewall</code></a></li>
+<li><a href="#4-10-selecting-a-person-to-edit-appointment-code-edit-appointment-code">4.10 Selecting a person to edit appointment: <code>edit-appointment</code></a></li>
+<li><a href="#4-11-create-an-associate-between-a-doctor-and-a-patient-code-link-code">4.11 Create an associate between a doctor and a patient: <code>link</code></a></li>
+<li><a href="#4-12-unlink">4.12 Unlink</a></li>
+<li><a href="#4-13-listing-all-persons-associated-code-associatelist-code">4.13 Listing all persons associated: <code>associatelist</code></a></li>
 <li><a href="#4-14-change-password">4.14 Change Password</a></li>
 <li><a href="#4-15-undo-redo-code-undo-code-code-redo-code">4.15 Undo/Redo : <code>undo</code> , <code>redo</code></a></li>
 <li><a href="#4-16-redo">4.16 Redo</a></li>
@@ -124,14 +124,22 @@ Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-3-clearing-all-entries-code-clear-code"><a class="link" href="#4-3-clearing-all-entries-code-clear-code">4.3 Clearing all entries : <code>clear</code></a></h3>
+<h3 id="4-3-sorting-the-list-code-sort-code"><a class="link" href="#4-3-sorting-the-list-code-sort-code">4.3 Sorting the list : <code>sort</code></a></h3>
+<div class="paragraph">
+<p>Sorts the list of entries in MediBook according to alphabetical order.
+After the list is sorted, future commands will use the index of the sorted list.
+Format: <code>sort</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-4-clearing-all-entries-code-clear-code"><a class="link" href="#4-4-clearing-all-entries-code-clear-code">4.4 Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the MediBook.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-4-finding-all-persons-containing-any-keyword-in-their-name-code-find-code"><a class="link" href="#4-4-finding-all-persons-containing-any-keyword-in-their-name-code-find-code">4.4 Finding all persons containing any keyword in their name: <code>find</code></a></h3>
+<h3 id="4-5-finding-all-persons-containing-any-keyword-in-their-name-code-find-code"><a class="link" href="#4-5-finding-all-persons-containing-any-keyword-in-their-name-code-find-code">4.5 Finding all persons containing any keyword in their name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
@@ -168,7 +176,7 @@ Returns Any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-5-adding-a-person-code-add-code"><a class="link" href="#4-5-adding-a-person-code-add-code">4.5 Adding a person: <code>add</code></a></h3>
+<h3 id="4-6-adding-a-person-code-add-code"><a class="link" href="#4-6-adding-a-person-code-add-code">4.6 Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to the MediBook.<br>
 Format: <code>add NAME n/NRIC [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [p]s/TITLE [d/DD-MM-YYYY-HH:MM]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
@@ -223,7 +231,7 @@ be seen using the <code>viewall</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-6-deleting-a-person-code-delete-code"><a class="link" href="#4-6-deleting-a-person-code-delete-code">4.6 Deleting a person : <code>delete</code></a></h3>
+<h3 id="4-7-deleting-a-person-code-delete-code"><a class="link" href="#4-7-deleting-a-person-code-delete-code">4.7 Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from the MediBook.<br>
 Format: <code>delete INDEX</code></p>
@@ -259,7 +267,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-7-view-non-private-details-of-a-person-code-view-code"><a class="link" href="#4-7-view-non-private-details-of-a-person-code-view-code">4.7 View non-private details of a person : <code>view</code></a></h3>
+<h3 id="4-8-view-non-private-details-of-a-person-code-view-code"><a class="link" href="#4-8-view-non-private-details-of-a-person-code-view-code">4.8 View non-private details of a person : <code>view</code></a></h3>
 <div class="paragraph">
 <p>Displays the non-private details of the specified person.<br>
 Format: <code>view INDEX</code></p>
@@ -295,7 +303,7 @@ Views the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-8-view-all-details-of-a-person-code-viewall-code"><a class="link" href="#4-8-view-all-details-of-a-person-code-viewall-code">4.8 View all details of a person : <code>viewall</code></a></h3>
+<h3 id="4-9-view-all-details-of-a-person-code-viewall-code"><a class="link" href="#4-9-view-all-details-of-a-person-code-viewall-code">4.9 View all details of a person : <code>viewall</code></a></h3>
 <div class="paragraph">
 <p>Displays all details (including private details) of the specified person.<br>
 Format: <code>viewall INDEX</code></p>
@@ -331,7 +339,7 @@ Views all details of the 1st person in the results of the <code>find</code> comm
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-9-selecting-a-person-to-edit-appointment-code-edit-appointment-code"><a class="link" href="#4-9-selecting-a-person-to-edit-appointment-code-edit-appointment-code">4.9 Selecting a person to edit appointment: <code>edit-appointment</code></a></h3>
+<h3 id="4-10-selecting-a-person-to-edit-appointment-code-edit-appointment-code"><a class="link" href="#4-10-selecting-a-person-to-edit-appointment-code-edit-appointment-code">4.10 Selecting a person to edit appointment: <code>edit-appointment</code></a></h3>
 <div class="paragraph">
 <p>Selects the person to edit appointment.<br>
 Format: 'edit-appointment INDEX'</p>
@@ -368,7 +376,7 @@ Access to the 1st person in the results of the <code>find</code> command.</p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="4-9-1-viewing-help-code-help-code"><a class="link" href="#4-9-1-viewing-help-code-help-code">4.9.1 Viewing help : <code>help</code></a></h4>
+<h4 id="4-10-1-viewing-help-code-help-code"><a class="link" href="#4-10-1-viewing-help-code-help-code">4.10.1 Viewing help : <code>help</code></a></h4>
 <div class="paragraph">
 <p>Shows the help screen for the edit-appointment session.<br>
 Format: <code>help</code></p>
@@ -389,14 +397,14 @@ Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="4-9-2-listing-the-appointment-of-the-selected-person-code-list-code"><a class="link" href="#4-9-2-listing-the-appointment-of-the-selected-person-code-list-code">4.9.2 Listing the appointment of the selected person: <code>list</code></a></h4>
+<h4 id="4-10-2-listing-the-appointment-of-the-selected-person-code-list-code"><a class="link" href="#4-10-2-listing-the-appointment-of-the-selected-person-code-list-code">4.10.2 Listing the appointment of the selected person: <code>list</code></a></h4>
 <div class="paragraph">
 <p>Shows a list of all appointment of the selected person in the MediBook.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="4-9-3-adding-appointment-to-the-selected-person-code-add-code"><a class="link" href="#4-9-3-adding-appointment-to-the-selected-person-code-add-code">4.9.3 Adding appointment to the selected person: <code>add</code></a></h4>
+<h4 id="4-10-3-adding-appointment-to-the-selected-person-code-add-code"><a class="link" href="#4-10-3-adding-appointment-to-the-selected-person-code-add-code">4.10.3 Adding appointment to the selected person: <code>add</code></a></h4>
 <div class="paragraph">
 <p>Adds appointments to the selected person in MediBook.<br>
 Format: <code>add DD-MM-YYYY-HH:MM&#8230;&#8203;</code></p>
@@ -426,7 +434,7 @@ Format: <code>add DD-MM-YYYY-HH:MM&#8230;&#8203;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="4-9-4-deleting-appointment-of-the-selected-person-code-delete-code"><a class="link" href="#4-9-4-deleting-appointment-of-the-selected-person-code-delete-code">4.9.4 Deleting appointment of the selected person: <code>delete</code></a></h4>
+<h4 id="4-10-4-deleting-appointment-of-the-selected-person-code-delete-code"><a class="link" href="#4-10-4-deleting-appointment-of-the-selected-person-code-delete-code">4.10.4 Deleting appointment of the selected person: <code>delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes appointments from the selected person in MediBook.<br>
 Format: <code>delete DD-MM-YYY-HH:MM&#8230;&#8203;</code></p>
@@ -453,7 +461,7 @@ Format: <code>delete DD-MM-YYY-HH:MM&#8230;&#8203;</code></p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="4-9-5-exiting-the-edit-appointment-session-code-done-code"><a class="link" href="#4-9-5-exiting-the-edit-appointment-session-code-done-code">4.9.5 Exiting the edit-appointment session: <code>done</code></a></h4>
+<h4 id="4-10-5-exiting-the-edit-appointment-session-code-done-code"><a class="link" href="#4-10-5-exiting-the-edit-appointment-session-code-done-code">4.10.5 Exiting the edit-appointment session: <code>done</code></a></h4>
 <div class="paragraph">
 <p>Exits the edit-appointment session.<br>
 Format: <code>done</code></p>
@@ -461,7 +469,7 @@ Format: <code>done</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-10-create-an-associate-between-a-doctor-and-a-patient-code-link-code"><a class="link" href="#4-10-create-an-associate-between-a-doctor-and-a-patient-code-link-code">4.10 Create an associate between a doctor and a patient: <code>link</code></a></h3>
+<h3 id="4-11-create-an-associate-between-a-doctor-and-a-patient-code-link-code"><a class="link" href="#4-11-create-an-associate-between-a-doctor-and-a-patient-code-link-code">4.11 Create an associate between a doctor and a patient: <code>link</code></a></h3>
 <div class="paragraph">
 <p>Create an association between person specified at INDEX1 and the person specified at INDEX2 <br>
 Format: <code>link INDEX1 INDEX2</code></p>
@@ -503,11 +511,11 @@ Associate the 1st person in the MediBook with 2nd person in the MediBook.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-11-unlink"><a class="link" href="#4-11-unlink">4.11 Unlink</a></h3>
+<h3 id="4-12-unlink"><a class="link" href="#4-12-unlink">4.12 Unlink</a></h3>
 
 </div>
 <div class="sect2">
-<h3 id="4-12-listing-all-persons-associated-code-associatelist-code"><a class="link" href="#4-12-listing-all-persons-associated-code-associatelist-code">4.12 Listing all persons associated: <code>associatelist</code></a></h3>
+<h3 id="4-13-listing-all-persons-associated-code-associatelist-code"><a class="link" href="#4-13-listing-all-persons-associated-code-associatelist-code">4.13 Listing all persons associated: <code>associatelist</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all persons associated with the specified person <br>
 Format: <code>associatelist INDEX</code></p>
@@ -545,19 +553,6 @@ The index refers to the index number shown in the most recent listing.</p>
 Views all persons associated with the 2nd person in the MediBook.</p>
 </li>
 </ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="4-13-opening-medichat-code-chat-code-coming-soon-in-v1-4"><a class="link" href="#4-13-opening-medichat-code-chat-code-coming-soon-in-v1-4">4.13 Opening MediChat : <code>chat</code> (Coming soon in v1.4)</a></h3>
-<div class="paragraph">
-<p>Opens up MediChat, an instant messaging client to instantly contact your colleagues.</p>
-</div>
-<div class="paragraph">
-<p>Note: In V1.3, the chat server has to be started first. Once MediChat window opens, type "localhost" when the IP address is requested. Next, enter a unique username.
-To simulate chatting, multiple MediChat windows have to be opened.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>chat</code> <code>localhost</code></p>
 </div>
 </div>
 <div class="sect2">
@@ -807,4 +802,4 @@ Format: <code>exit</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-11 17:55:10 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 02:23:55 UTC</div></div></div></body></html>
