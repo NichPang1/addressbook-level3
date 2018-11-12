@@ -18,7 +18,10 @@
 <li><a href="#4-implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#4-1-state-control-undo-redo">4.1  State control (undo/redo)</a></li>
-<li><a href="#4-2-login-system">4.2 Login System</a></li>
+<li><a href="#4-2-login-system-and-access-level">4.2 Login System and Access Level</a></li>
+<li><a href="#4-2-1-current-implementation">4.2.1 Current Implementation</a></li>
+<li><a href="#4-2-2-reason-for-implementation">4.2.2 Reason for Implementation</a></li>
+<li><a href="#4-2-3-future-alternative-implementation">4.2.3 Future/Alternative Implementation</a></li>
 <li><a href="#4-3-scheduling">4.3 Scheduling</a></li>
 <li><a href="#4-4-data-organisation">4.4 Data Organisation</a></li>
 <li><a href="#4-5-association">4.5 Association</a></li>
@@ -315,7 +318,7 @@ If the user execute <code>undo</code> command when the <code>undoStack</code> is
 </div>
 </div>
 <div class="sect3">
-<h4 id="4-1-2-reason-for-this-implementation"><a class="link" href="#4-1-2-reason-for-this-implementation">4.1.2  Reason for this implementation</a></h4>
+<h4 id="4-1-1-current-implementation-2"><a class="link" href="#4-1-1-current-implementation-2">4.1.1  Current implementation</a></h4>
 <div class="paragraph">
 <p>Current implementation requires each UndoAbleCommand object to know how to revert their own changes.This will use less memory as minimal data is stored. For example, for <code>add</code>, only the person added will be saved. However, we must ensure that the implementation of each individual command are correct.</p>
 </div>
@@ -328,31 +331,52 @@ If the user execute <code>undo</code> command when the <code>undoStack</code> is
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-2-login-system"><a class="link" href="#4-2-login-system">4.2 Login System</a></h3>
+<h3 id="4-2-login-system-and-access-level"><a class="link" href="#4-2-login-system-and-access-level">4.2 Login System and Access Level</a></h3>
 <div class="paragraph">
-<p>Securely logs user on to MediBook</p>
+<p>Securely logs user on to MediBook with a preassigned access level.</p>
 </div>
-<div class="sect3">
-<h4 id="4-2-1-current-implementation"><a class="link" href="#4-2-1-current-implementation">4.2.1 Current Implementation</a></h4>
+</div>
+<div class="sect2">
+<h3 id="4-2-1-current-implementation"><a class="link" href="#4-2-1-current-implementation">4.2.1 Current Implementation</a></h3>
 <div class="paragraph">
-<p>Login is implemented before the main GUI launches. Upon the launch of MediBook, MediBook prompts for two input from the User, username and password. MediBook then compares the given pair of inputs with loginstorage.txt.</p>
+<p>Login is implemented as a User Interface(UI) before the main Graphic UI(GUI) launches. The login UI and main GUI are two different scenes. Upon the launch of MediBook, the scene is set to the login UI and MediBook prompts for two input from the User, username and password. MediBook then compares the given pair of inputs with the data in the file loginstorage.txt.
+On successful login, the scene will switch from login UI to the main GUI scene.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/sceneswitch.png" alt="sceneswitch">
+</div>
 </div>
 <div class="paragraph">
-<p>loginstorage.txt stores the username of all users and the hashes of their passwords. MediBook iterates through loginstorage.txt to find the matching username, and the corresponding hashed password. The password entered is hashed using Java’s SHA-512 hashing algorithm. The result is then matched with the hash stored in loginstorage.txt, if both matches then login is successful and user is allowed into MediBook. If they do not match, then the program is terminated.</p>
+<p>Similar to the main GUI, login UI uses JavaFX with the file, signin.fxml, and its controller class, LoginWindow. LoginWindow class handles the getting of user inputs (i.e. Username and Password).
+Additionally, LoginWindow will reject empty fields and prompt the user for non-empty inputs. These are implemented with the function tryLogin().
+If valid inputs are entered by the user, LoginWindow will send the inputs to the Login component of Medibook. The Login component will return an answer in the form of a Boolean as to whether login is successful or not.
+The user has three tries to enter a correct set of username and password before the program exits for security reasons.</p>
 </div>
-</div>
-<div class="sect3">
-<h4 id="4-2-2-reason-for-this-implementation"><a class="link" href="#4-2-2-reason-for-this-implementation">4.2.2 Reason for this implementation</a></h4>
 <div class="paragraph">
-<p>There is no need to open the GUI, if User fails to log in, thus login is implemented before the GUI launches.
-To ensure a secure MediBook, user login profiles must be stored securely. Storing the hash result instead of the password ensures that should loginstorage.txt be compromised, the actual passwords are still unknown to the perpetrators.</p>
+<p>When Login component receives the input from LoginWindow, a Credentials class object with the given username and password will be instantiated in Login class.
+Using the methods of the Credentials class, validation of the Credentials will take place. The Credentials are passed through the WorkWithLoginStorage class which will retrieve data from loginstorage.txt and comapre it with the input.
+loginstorage.txt stores the username of all users and the hashes of their passwords and their respective access levels.
+WorkWithLoginStorage class iterates through loginstorage.txt to find the matching username, and the corresponding hashed password. The password input is then hashed using Java’s SHA-512 hashing algorithm and the result is compared with the hashed password stored in loginstorage.txt.
+If both matches then a Boolean true will be returned and a Boolean false if otherwise.</p>
 </div>
 </div>
-<div class="sect3">
-<h4 id="4-2-3-alternative-consideration"><a class="link" href="#4-2-3-alternative-consideration">4.2.3 Alternative consideration</a></h4>
+<div class="sect2">
+<h3 id="4-2-2-reason-for-implementation"><a class="link" href="#4-2-2-reason-for-implementation">4.2.2 Reason for Implementation</a></h3>
 <div class="paragraph">
-<p>Java Authentication and Authorisation System (JAAS) was also considered when deciding on how to implement MediBook’s login system. However, using JAAS is more restrictive than the current implementation which allows for easy change in hashing algorithms used and different security features in the future. JAAS is also harder to implement and as MediBook is currently targeted at about 1000 users, there is no need to use JAAS.</p>
+<p>A different UI scene is used for login so as to allow main GUI to be more isolated. Should the User fail to log in, access to Medibook must and will be denied. Thus login is implemented before the main GUI.
+As login UI and main GUI will never need to be concurrent, two separate scenes and switching from login UI to main GUI can be used.</p>
 </div>
+<div class="paragraph">
+<p>To ensure a secure MediBook, user login profiles must be stored securely. Storing the hash result instead of the password ensures that should loginstorage.txt be compromised, the actual passwords are still unknown to the perpetrators.
+This is due to hashes being one-way. It is almost impossible for people to get back the actual password with a hash. Also, two similar passwords (e.g. Password123! and Password124!) will result in a completely different hash making it even harder for hackers to work out the actual password based on the hashes.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-2-3-future-alternative-implementation"><a class="link" href="#4-2-3-future-alternative-implementation">4.2.3 Future/Alternative Implementation</a></h3>
+<div class="paragraph">
+<p>An alternative implementation, Java Authentication and Authorisation System (JAAS), was also considered when deciding on how to implement MediBook’s login system. However, using JAAS is more restrictive than the current implementation which allows for easy change in hashing algorithms used and different security features in the future. JAAS is also harder to implement and as MediBook is currently targeted at about 1000 users, there is no need to use JAAS.
+In the future, a salt will be used to safeguard against rainbow table attacks where hackers compare the hashes from loginstorage.txt with their own table of hashes of all different combinations of passwords.</p>
 </div>
 </div>
 <div class="sect2">
@@ -781,4 +805,4 @@ To ensure a secure MediBook, user login profiles must be stored securely. Storin
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:30:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 14:31:04 UTC</div></div></div></body></html>
