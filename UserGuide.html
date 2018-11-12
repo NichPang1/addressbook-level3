@@ -17,12 +17,11 @@
 <li><a href="#4-8-view-non-private-details-of-a-person-code-view-code">4.8 View non-private details of a person : <code>view</code></a></li>
 <li><a href="#4-9-view-all-details-of-a-person-code-viewall-code">4.9 View all details of a person : <code>viewall</code></a></li>
 <li><a href="#4-10-selecting-a-person-to-edit-appointment-code-edit-appointment-code">4.10 Selecting a person to edit appointment: <code>edit-appointment</code></a></li>
-<li><a href="#4-11-create-an-associate-between-a-doctor-and-a-patient-code-link-code">4.11 Create an associate between a doctor and a patient: <code>link</code></a></li>
 <li><a href="#4-12-unlink">4.12 Unlink</a></li>
 <li><a href="#4-13-listing-all-persons-associated-code-associatelist-code">4.13 Listing all persons associated: <code>associatelist</code></a></li>
 <li><a href="#4-14-change-password">4.14 Change Password</a></li>
-<li><a href="#4-15-undo-redo-code-undo-code-code-redo-code">4.15 Undo/Redo : <code>undo</code> , <code>redo</code></a></li>
-<li><a href="#4-16-redo">4.16 Redo</a></li>
+<li><a href="#4-15-undo-code-undo-code">4.15 Undo: <code>undo</code></a></li>
+<li><a href="#4-16-redo-code-redo-code">4.16 Redo: <code>redo</code></a></li>
 <li><a href="#4-17-listing-all-executed-commands-code-history-code">4.17 Listing all executed commands : <code>history</code></a></li>
 <li><a href="#4-18-exiting-the-program-code-exit-code">4.18 Exiting the program : <code>exit</code></a></li>
 <li><a href="#4-19-saving-the-data">4.19 Saving the data</a></li>
@@ -183,7 +182,7 @@ Returns Any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <h3 id="4-6-adding-a-person-code-add-code"><a class="link" href="#4-6-adding-a-person-code-add-code">4.6 Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to MediBook.<br>
-Format: <code>add NAME n/NRIC [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [p]s/TITLE [d/DD-MM-YYYY-HH:MM]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
+Format: <code>add NAME n/NRIC [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS s/TITLE [d/DD-MM-YYYY-HH:MM]&#8230;&#8203; [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -193,13 +192,13 @@ Format: <code>add NAME n/NRIC [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [p]s/TIT
 </td>
 <td class="content">
 <div class="paragraph">
-<p>TITLE is used to differentiate Doctor and Patient.</p>
+<p>TITLE is used to differentiate a doctor and a patient. Putting <code>Doctor</code> in this field will create a doctor while <code>Patient</code> will create a patient.</p>
 </div>
 <div class="paragraph">
 <p>DD-MM-YYYY-HH:MM is used to record appointment dates and their starting time.</p>
 </div>
 <div class="paragraph">
-<p>TAG is used to tag medical conditions and other important information</p>
+<p>TAG is used to tag medical conditions and other important information.</p>
 </div>
 </td>
 </tr>
@@ -212,7 +211,7 @@ Format: <code>add NAME n/NRIC [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [p]s/TIT
 items with <code>&#8230;&#8203;</code> after them can have multiple instances. Order of parameters are fixed.</p>
 </div>
 <div class="paragraph">
-<p>Put a <code>p</code> before the phone / email / address / title prefixes to mark it as <code>private</code>. <code>private</code> details can only
+<p>Put a <code>p</code> before the phone / email / address prefixes to mark it as <code>private</code>. <code>private</code> details can only
 be seen using the <code>viewall</code> command.</p>
 </div>
 <div class="paragraph">
@@ -468,12 +467,9 @@ Format: <code>delete DD-MM-YYY-HH:MM&#8230;&#8203;</code></p>
 <h4 id="4-10-5-exiting-the-edit-appointment-session-code-done-code"><a class="link" href="#4-10-5-exiting-the-edit-appointment-session-code-done-code">4.10.5 Exiting the edit-appointment session: <code>done</code></a></h4>
 <div class="paragraph">
 <p>Exits the edit-appointment session.<br>
-Format: <code>done</code></p>
+Format: <code>done</code>
+=== 4.11 Create an associate between a doctor and a patient: <code>link</code></p>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="4-11-create-an-associate-between-a-doctor-and-a-patient-code-link-code"><a class="link" href="#4-11-create-an-associate-between-a-doctor-and-a-patient-code-link-code">4.11 Create an associate between a doctor and a patient: <code>link</code></a></h3>
 <div class="paragraph">
 <p>Create an association between person specified at INDEX1 and the person specified at INDEX2 <br>
 Format: <code>link INDEX1 INDEX2</code></p>
@@ -514,14 +510,51 @@ Associate the 1st person with the 2nd person in MediBook.</p>
 </ul>
 </div>
 </div>
+</div>
 <div class="sect2">
 <h3 id="4-12-unlink"><a class="link" href="#4-12-unlink">4.12 Unlink</a></h3>
-
+<div class="paragraph">
+<p>Removes association between person specified at INDEX1 and the person specified at INDEX2 <br>
+Format: <code>link INDEX1 INDEX2</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>The index refers to the index number shown in the most recent listing. If there are no association between the two, user will see an message stating that instead.</p>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Similar to viewall, view and delete, it requires list or find command to be called at least once in the session for an index reference to edit-appointment.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>unlink 1 2</code><br>
+Removes association between the 1st person with the 2nd person in MediBook.</p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
 <h3 id="4-13-listing-all-persons-associated-code-associatelist-code"><a class="link" href="#4-13-listing-all-persons-associated-code-associatelist-code">4.13 Listing all persons associated: <code>associatelist</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons associated with the specified person <br>
+<p>Shows a list of persons associated with the specified person <br>
 Format: <code>associatelist INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -554,7 +587,7 @@ The index refers to the index number shown in the most recent listing.</p>
 <li>
 <p><code>list</code><br>
 <code>associatelist 2</code><br>
-Views all persons associated with the 2nd person in MediBook.</p>
+Views the persons associated with the 2nd person in MediBook.</p>
 </li>
 </ul>
 </div>
@@ -564,17 +597,65 @@ Views all persons associated with the 2nd person in MediBook.</p>
 
 </div>
 <div class="sect2">
-<h3 id="4-15-undo-redo-code-undo-code-code-redo-code"><a class="link" href="#4-15-undo-redo-code-undo-code-code-redo-code">4.15 Undo/Redo : <code>undo</code> , <code>redo</code></a></h3>
+<h3 id="4-15-undo-code-undo-code"><a class="link" href="#4-15-undo-code-undo-code">4.15 Undo: <code>undo</code></a></h3>
 <div class="paragraph">
-<p><code>Undo</code> reverts the last command made. <code>Redo</code> reverts specifically the last undo command made when applicable.<br>
-Format: <code>undo</code><br>
-Format: <code>redo</code></p>
+<p><code>Undo</code> reverts the last command made.<br>
+Format: <code>undo</code><br></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="paragraph">
 <p>Commands are undo-able if they make changes to the data and are made within the browsing session.
-Commands are redo-able if undo are made without other commands called.
+This command is especially useful when an erroneous command, such as delete, is made which causes change to the data.</p>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>delete 2</code><br>
+Deletes the 2nd person in MediBook.<br>
+<code>undo</code><br>
+Undo the deletion of the deleted person.<br></p>
+</li>
+<li>
+<p><code>find Betsy</code><br>
+<code>delete 1</code><br>
+Deletes the 1st person in the results of the <code>find</code> command.<br>
+<code>undo</code><br>
+Undo the deletion of the deleted person.<br></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Calling undo when no changes are made to MediBook&#8217;s data will result in an error message saying "No commands to undo" instead.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-16-redo-code-redo-code"><a class="link" href="#4-16-redo-code-redo-code">4.16 Redo: <code>redo</code></a></h3>
+<div class="paragraph">
+<p><code>Redo</code> reverts the last undo command made when applicable.<br>
+Format: <code>redo</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Redo can be called after a undo command.
 This two commands are especially useful when an erroneous command, such as delete, is made which causes change to the data.</p>
 </div>
 </div>
@@ -587,8 +668,7 @@ This two commands are especially useful when an erroneous command, such as delet
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Redo commands are only available after undo command(s) are made.
-However, once a change is made after an undo, a redo to previous changes that are undone is no longer possible.</p>
+<p>Once a change is made after an undo, a redo to previous changes that are undone is no longer possible. In this case an error message saying "No commands to redo" will be shown.</p>
 </div>
 </td>
 </tr>
@@ -627,37 +707,18 @@ Redo the deletion of 1st person in the results of the <code>find</code> command.
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undo/Redo command currently is only implemented for <code>add</code>/<code>delete</code>/<code>clear</code>/<code>link</code> as other commands that make changes to the data might be incomplete</p>
+<p>Calling redo when no undo was done will result in an error message saying "No commands to redo" instead.</p>
 </div>
 </td>
 </tr>
 </table>
 </div>
-</div>
-<div class="sect2">
-<h3 id="4-16-redo"><a class="link" href="#4-16-redo">4.16 Redo</a></h3>
-
 </div>
 <div class="sect2">
 <h3 id="4-17-listing-all-executed-commands-code-history-code"><a class="link" href="#4-17-listing-all-executed-commands-code-history-code">4.17 Listing all executed commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all executed commands in the current session.<br>
 Format: <code>history</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>As some commands are incomplete, they might not be be reflected in <code>history</code> even though they are executed.
-If you encounter this, please feel free to let us know. Thank you!</p>
-</div>
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -741,7 +802,7 @@ Format: <code>exit</code></p>
 <p><code>link</code> : Create an associate between a doctor and a patient</p>
 </li>
 <li>
-<p><code>unlink</code></p>
+<p><code>unlink</code> : Remove association between the two targets</p>
 </li>
 <li>
 <p><code>associatelist</code> : List all persons associated</p>
@@ -809,4 +870,4 @@ Format: <code>exit</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 07:47:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 08:40:53 UTC</div></div></div></body></html>
