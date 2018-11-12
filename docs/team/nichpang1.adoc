@@ -9,7 +9,7 @@
 
 == Overview
 
-MediBook is an alternative to the primitive pen and paper management system for hospitals to store patient data as well as doctor information and their schedule. It allows doctors to have essential patients information at their fingertips. In accordance with PDPA, doctors will only be able to see patients information that are relevant to them. The user interacts with it using a CLI with a basic GUI. It is written in Java, and has about 5 kLoC
+MediBook is an alternative to the primitive pen and paper management system for hospitals to store patient data as well as doctor information and their schedule. It allows doctors to have essential patients information at their fingertips.  The user interacts with it using a CLI with a basic GUI. It is written in Java, and has about 5 kLoC
 
 == Summary of contributions
 
