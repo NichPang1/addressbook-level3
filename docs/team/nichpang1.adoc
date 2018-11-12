@@ -37,20 +37,11 @@ MediBook is an alternative to the primitive pen and paper management system for 
 
 == Contributions to the User Guide
 
-
-|===
-|_Given below are sections I contributed to the User Guide._
-|===
-
 include::../UserGuide.adoc[tag=associate]
 
 include::../UserGuide.adoc[tag=statecontrol]
 
 == Contributions to the Developer Guide
-
-|===
-|_Given below are sections I contributed to the Developer Guide._
-|===
 
 include::../DeveloperGuide.adoc[tag=logiccompo]
 
