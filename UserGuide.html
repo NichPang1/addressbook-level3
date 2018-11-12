@@ -17,14 +17,16 @@
 <li><a href="#4-8-view-non-private-details-of-a-person-code-view-code">4.8 View non-private details of a person : <code>view</code></a></li>
 <li><a href="#4-9-view-all-details-of-a-person-code-viewall-code">4.9 View all details of a person : <code>viewall</code></a></li>
 <li><a href="#4-10-selecting-a-person-to-edit-appointment-code-edit-appointment-code">4.10 Selecting a person to edit appointment: <code>edit-appointment</code></a></li>
+<li><a href="#4-11-associate-a-patient-and-a-doctor-code-link-code">4.11 Associate a patient and a doctor: <code>link</code></a></li>
 <li><a href="#4-12-remove-association-code-unlink-code">4.12 Remove association : <code>unlink</code></a></li>
 <li><a href="#4-13-listing-all-persons-associated-code-associatelist-code">4.13 Listing all persons associated: <code>associatelist</code></a></li>
-<li><a href="#4-14-change-password">4.14 Change Password</a></li>
+<li><a href="#4-14-change-password-code-changepassword-code">4.14 Change Password: <code>changepassword</code></a></li>
 <li><a href="#4-15-undo-code-undo-code">4.15 Undo: <code>undo</code></a></li>
 <li><a href="#4-16-redo-code-redo-code">4.16 Redo: <code>redo</code></a></li>
 <li><a href="#4-17-listing-all-executed-commands-code-history-code">4.17 Listing all executed commands : <code>history</code></a></li>
 <li><a href="#4-18-exiting-the-program-code-exit-code">4.18 Exiting the program : <code>exit</code></a></li>
-<li><a href="#4-19-saving-the-data">4.19 Saving the data</a></li>
+<li><a href="#4-19-access-levels">4.19 Access levels</a></li>
+<li><a href="#4-20-saving-the-data">4.20 Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#5-a-compact-summary">5 A Compact Summary</a></li>
@@ -77,6 +79,9 @@ Program will exit upon login failure, i.e. 3 incorrect username/password tries</
 </li>
 <li>
 <p>Upon successful login, main GUI <code>Welcome to your MediBook!</code> will appear.</p>
+</li>
+<li>
+<p>Current Username and Access level will be displayed at bottom of main GUI</p>
 <div class="imageblock">
 <div class="content">
 <img src="images/mainUI.png" alt="mainUI">
@@ -84,6 +89,21 @@ Program will exit upon login failure, i.e. 3 incorrect username/password tries</
 </div>
 </li>
 </ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Two .txt files (addressbook.txt and loginstorage.txt) with preloaded data will be created in the same directory as the .jar file.
+If you wish to start Medibook from scratch, delete the contents of BOTH these files.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -467,9 +487,12 @@ Format: <code>delete DD-MM-YYY-HH:MM&#8230;&#8203;</code></p>
 <h4 id="4-10-5-exiting-the-edit-appointment-session-code-done-code"><a class="link" href="#4-10-5-exiting-the-edit-appointment-session-code-done-code">4.10.5 Exiting the edit-appointment session: <code>done</code></a></h4>
 <div class="paragraph">
 <p>Exits the edit-appointment session.<br>
-Format: <code>done</code>
-=== 4.11 Associate a patient and a doctor: <code>link</code></p>
+Format: <code>done</code></p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-11-associate-a-patient-and-a-doctor-code-link-code"><a class="link" href="#4-11-associate-a-patient-and-a-doctor-code-link-code">4.11 Associate a patient and a doctor: <code>link</code></a></h3>
 <div class="paragraph">
 <p>Create an association between person specified at INDEX1 and the person specified at INDEX2 <br>
 Format: <code>link INDEX1 INDEX2</code></p>
@@ -508,7 +531,6 @@ The index refers to the index number shown in the most recent listing.</p>
 Associate the 1st person with the 2nd person in MediBook.</p>
 </li>
 </ul>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -593,8 +615,38 @@ Views the persons associated with the 2nd person in MediBook.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-14-change-password"><a class="link" href="#4-14-change-password">4.14 Change Password</a></h3>
-
+<h3 id="4-14-change-password-code-changepassword-code"><a class="link" href="#4-14-change-password-code-changepassword-code">4.14 Change Password: <code>changepassword</code></a></h3>
+<div class="paragraph">
+<p>Changes the password of the current logged-in-user.
+Format: changepassword pw/CURRENTPASSWORD npw/NEWPASSWORD cpw/CONFIRMNEWPASSWORD</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>CURRENTPASSWORD must be the current password of the logged-in-user</p>
+</div>
+<div class="paragraph">
+<p>NEWPASSWORD and CONFIRMNEWPASSWORD must be exactly the same.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>changepassword pw/0ldPassword! npw/N3wPassword! cpw/N3wPassword!</code></p>
+</li>
+</ul>
+</div>
 </div>
 <div class="sect2">
 <h3 id="4-15-undo-code-undo-code"><a class="link" href="#4-15-undo-code-undo-code">4.15 Undo: <code>undo</code></a></h3>
@@ -708,7 +760,28 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="4-19-saving-the-data"><a class="link" href="#4-19-saving-the-data">4.19 Saving the data</a></h3>
+<h3 id="4-19-access-levels"><a class="link" href="#4-19-access-levels">4.19 Access levels</a></h3>
+<div class="paragraph">
+<p>Certain data fields of a person will require a certain access level to view the information. If the User does not have the required access level, the field will be displayed as "*** HIDDEN ***" instead.
+Address field is such a data type. A smaller number indicate a higher access level with level 0 being the highest level.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>viewall 1</code><br>
+Views all details of the 1st person in MediBook.
+DISPLAYED:<br>
+Viewing person: John Doe NRIC: S1233210Y Phone: 81654610 Email: 10@gmail Address:  *** HIDDEN ***  Title: Doctor Schedule:  Tags:</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="4-20-saving-the-data"><a class="link" href="#4-20-saving-the-data">4.20 Saving the data</a></h3>
 <div class="paragraph">
 <p>MediBook data is saved in the hard disk automatically after any command that changes the data. As such, there is no
  need to save the data manually. Data is saved in a file called addressbook.txt in the project root folder.</p>
@@ -787,7 +860,7 @@ Format: <code>exit</code></p>
 <p><code>associatelist</code> : List all persons associated</p>
 </li>
 <li>
-<p><code>change password</code></p>
+<p><code>changepassword</code> : Changes password for current logged-in-user</p>
 </li>
 <li>
 <p><code>undo</code> : Undo a change made previously</p>
@@ -849,4 +922,4 @@ Format: <code>exit</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:32:27 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2018-11-12 13:35:37 UTC</div></div></div></body></html>
